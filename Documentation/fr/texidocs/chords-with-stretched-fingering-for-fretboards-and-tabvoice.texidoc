@@ -1,0 +1,11 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Il peut arriver que le doigté d'un accord soit assez étendu. Sauf
+mention contraire, la propriété de contexte @code{maximumFretStretch}
+est cependant fixée à @code{4}, ce qui peut générer un avertissement
+« Pas de corde pour la hauteur… » et la note est omise. On peut régler
+@code{maximumFretStretch} sur une valeur appropriée ou assigner
+explicitement leur numéro de corde à toutes les notes d'un accord.
+"
+
+  doctitlefr = "Accords avec doigté espacé pour @code{FretBoards} et @code{TabVoice}"

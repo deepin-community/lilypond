@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use File::Find;
+use File::Spec;
+
+my $debian_dir = $ARGV[0];
+
+find(\&symlink_if_file,$debian_dir);
+
+sub symlink_if_file {
+    return if -l $_;
+    return unless -f $_;
+    my ($leading,$dir,$file_name) = $File::Find::name
+        =~ m{(.+/usr/share/info/lilypond/)(.*?)([^/]+)$};
+    my $n_slashes = $dir =~ m{/}g;
+    my $html_file =
+        File::Spec->catfile(('..') x ($n_slashes+2),
+                            qw(doc lilypond html Documentation),
+                            $dir,
+                            $file_name
+                           );
+    my $info_file =
+        File::Spec->catfile(('..') x ($n_slashes+4),
+                            qw(info lilypond),
+                            $dir,
+                            $file_name);
+    if (-f $html_file) {
+        system('ln','-sf',$info_file,$html_file);
+        print STDERR "linking $html_file -> $info_file\n";
+    } else {
+        print STDERR "html file $html_file doesn't exist\n";
+    }
+}

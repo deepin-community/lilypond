@@ -1,0 +1,10 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+LilyPond adpote par défaut la dénomination anglaise pour le nom et le
+chiffrage des accords.  L'instruction @code{\\germanChords} permet
+d'afficher @code{H} et @code{B} en lieu et place de @code{B} et
+@code{Bes}.  L'instruction @code{\\semiGermanChords} leur substituera
+@code{H} et @code{Bb}.
+"
+
+  doctitlefr = "Adoption de la dénomination germanique ou semi-germanique des accords"

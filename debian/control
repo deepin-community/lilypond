@@ -1,15 +1,412 @@
-Source: template-repository
-Section: unknown
+Source: lilypond
+Section: tex
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Anthony Fok <foka@debian.org>
+Uploaders: Don Armstrong <don@debian.org>,
+           Dr. Tobias Quathamer <toddy@debian.org>
+Rules-Requires-Root: no
+Build-Depends: bison,
+               dblatex,
+               debhelper-compat (= 13),
+               dh-python,
+               extractpdfmark,
+               flex,
+               fontconfig,
+               fontforge,
+               fonts-freefont-otf,
+               fonts-ipafont-mincho,
+               fonts-linuxlibertine,
+               fonts-texgyre,
+               fonts-urw-base35,
+               gettext,
+               ghostscript,
+               groff,
+               gsfonts,
+               guile-2.2-dev,
+               help2man,
+               imagemagick [kfreebsd-any],
+               imagemagick-6.q16 [!kfreebsd-any],
+               libfl-dev,
+               libfontconfig-dev,
+               libfreetype-dev,
+               libglib2.0-dev,
+               libpango1.0-dev,
+               m4,
+               netpbm,
+               pkg-config,
+               python3,
+               rsync,
+               texi2html,
+               texinfo,
+               texlive-font-utils,
+               texlive-fonts-recommended,
+               texlive-lang-cyrillic,
+               texlive-latex-base,
+               texlive-latex-recommended,
+               texlive-metapost,
+               texlive-plain-generic,
+               zip
+Standards-Version: 4.6.2
+Vcs-Browser: https://salsa.debian.org/debian/lilypond
+Vcs-Git: https://salsa.debian.org/debian/lilypond.git
+Homepage: https://lilypond.org/
 
-Package: template-repository
+Package: lilypond
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ghostscript,
+         guile-2.2,
+         lilypond-data (= ${source:Version}),
+         ${misc:Depends},
+         ${python3:Depends},
+         ${shlibs:Depends}
+Recommends: texlive-latex-base
+Suggests: lilypond-doc,
+          python3-lxml
+Breaks: ${python3:Breaks}
+Description: program for typesetting sheet music
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ LilyPond supports many forms of music notation constructs, including
+ chord names, drum notation, figured bass, grace notes, guitar tablature,
+ modern notation (cluster notation and rhythmic grouping), tremolos,
+ (nested) tuplets in arbitrary ratios, and more.
+ .
+ LilyPond's text-based music input language support can integrate into
+ LaTeX, HTML and Texinfo seamlessly, allowing single sheet music
+ or musicological treatises to be written from a single source.  Form and
+ content are separate, and with LilyPond's expert automated formatting,
+ users don't need typographical expertise to produce good notation.
+ .
+ LilyPond produces PDF, PostScript, SVG, or TeX printed output, as well
+ as MIDI for listening pleasures.  LilyPond is exported from the
+ RoseGarden and NoteEdit GUIs, and can import ABC, ETF and MIDI.
+ .
+ LilyPond is part of the GNU Project.
+
+Package: lilypond-data
+Architecture: all
+Depends: fonts-urw-base35,
+         lilypond-fonts,
+         ${misc:Depends},
+         ${python3:Depends}
+Recommends: fonts-texgyre,
+            lilypond (>= ${source:Version})
+Breaks: ${python3:Breaks}
+Description: LilyPond music typesetter (data files)
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains architecture-independent data files for LilyPond.
+
+Package: lilypond-fonts
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Breaks: lilypond-data (<< 2.20.0-3~)
+Replaces: lilypond-data (<< 2.20.0-3~)
+Description: LilyPond music typesetter (fonts)
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains font files for LilyPond.
+
+Package: lilypond-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Recommends: lilypond-doc-html,
+            lilypond-doc-pdf
+Suggests: lilypond (>= ${source:Version})
+Pre-Depends: ${misc:Pre-Depends}
+Breaks: lilypond-doc-html (<< 2.21)
+Replaces: lilypond-doc-html (<< 2.21)
+Description: LilyPond Documentation in info format (and metapackage)
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package includes the info documentation and recommends the html
+ and pdf documentation for the LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation for the LilyPond music
+ typesetting software.
+
+Package: lilypond-doc-html
+Architecture: all
+Section: doc
+Depends: lilypond-doc,
+         ${misc:Depends}
+Recommends: mozilla-browser | www-browser
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation for the LilyPond music
+ typesetting software.
+
+Package: lilypond-doc-html-ca
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Catalan
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Catalan for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-cs
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Czech
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Czech for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-de
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in German
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in German for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-es
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Spanish
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Spanish for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-fr
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in French
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in French for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-hu
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Hungarian
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Hungarian for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-it
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Italian
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Italian for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-ja
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Japanese
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Japanese for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-nl
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Dutch
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Dutch for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-pt
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Portuguese
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Portuguese for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-html-zh
+Architecture: all
+Section: doc
+Depends: lilypond-doc-html,
+         ${misc:Depends}
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond HTML Documentation in Chinese
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the HTML documentation in Chinese for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf-ca
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation in Catalan
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation in Catalan for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf-de
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation in German
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation in German for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf-es
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation in Spanish
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation in Spanish for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf-fr
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation in French
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation in French for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf-hu
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation in Hungarian
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation in Hungarian for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf-it
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation in Italian
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation in Italian for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf-nl
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation in Dutch
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation in Dutch for the
+ LilyPond music typesetting software.
+
+Package: lilypond-doc-pdf-pt
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: evince | pdf-viewer
+Suggests: lilypond (>= ${source:Version})
+Description: LilyPond PDF Documentation in Portuguese
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the PDF documentation in Portuguese for the
+ LilyPond music typesetting software.

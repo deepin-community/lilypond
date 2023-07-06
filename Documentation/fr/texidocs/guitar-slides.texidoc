@@ -1,0 +1,9 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Contrairement au glissando, un « slide » peut aller d'un point non
+précisé du manche jusqu'à un fret spécifique. Ceci peut s'indiquer à
+l'aide d'une note d'ornement masquée précédant la note effectivement
+jouée, comme dans l'exemple suivant.
+"
+
+  doctitlefr = "Indication d'un glissé de guitare"

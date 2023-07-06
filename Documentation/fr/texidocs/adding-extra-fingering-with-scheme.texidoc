@@ -1,0 +1,12 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Il est possible, à l'aide de la fonction @code{map-some-music},
+d'ajouter divers éléments à des notes. Voici comment attacher un script
+supplémentaire à une note.
+
+En règle générale, réaliser préalablement un @code{\\displayMusic}
+de la musique que vous souhaitez créer vous aidera à écrire la fonction
+chargée de structurer votre musique.
+"
+
+  doctitlefr = "Ajout d'un doigté supplémentaire avec Scheme"

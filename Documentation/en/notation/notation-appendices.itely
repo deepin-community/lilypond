@@ -1,0 +1,3780 @@
+@c -*- coding: utf-8; mode: texinfo; -*-
+
+@ignore
+    Translation of GIT committish: FILL-IN-HEAD-COMMITTISH
+
+    When revising a translation, copy the HEAD committish of the
+    version that you are working on.  For details, see the Contributors'
+    Guide, node Updating translation committishes..
+@end ignore
+
+@c \version "2.21.0"
+
+@node Notation manual tables
+@appendix Notation manual tables
+
+@menu
+* Chord name chart::
+* Common chord modifiers::
+* Predefined string tunings::
+* Predefined fretboard diagrams::
+* Predefined paper sizes::
+* MIDI instruments::
+* List of colors::
+* The Emmentaler font::
+* Note head styles::
+* Accidental glyph sets::
+* Clef styles::
+* Text markup commands::
+* Text markup list commands::
+* List of special characters::
+* List of articulations::
+* List of breath marks::
+* Percussion notes::
+* List of bar lines::
+* Default values for outside-staff-priority::
+* Technical glossary::
+* Available music functions::
+* Context modification identifiers::
+* Naming conventions::
+* Predefined type predicates::
+@end menu
+
+
+
+@node Chord name chart
+@appendixsec Chord name chart
+
+The following chart shows LilyPond's standard system for printing chord
+names, along with the pitches they represent.  Additional (unsupported)
+naming systems are also demonstrated in the @qq{Chord names alternative}
+snippet in @rlsr{Chords}, including the notation inspired
+by Harald Banter (1982) that was used by default in early LilyPond
+releases (up to version 1.7).
+
+@c The line width is a hack to allow space for instrument names
+@lilypondfile[quote,line-width=15\cm]{en/included/chord-names-jazz.ly}
+
+@node Common chord modifiers
+@appendixsec Common chord modifiers
+
+The following table shows chord modifiers that can be used to generate
+standard chord structures.
+
+@multitable @columnfractions .2 .25 .18 .17 .2
+
+@item
+@b{Type}
+@tab
+@b{Interval}
+@tab
+@b{Modifier}
+@tab
+@b{Example}
+@tab
+@b{Output}
+
+
+@item
+Major
+@tab
+Major third, @*perfect fifth
+@tab
+@code{5} or nothing
+@tab
+@code{c1:5}
+@tab
+@lilypond[inline,line-width=2.1\cm,notime]
+<<
+  \chords { c1:5 }
+  \chordmode { c1:5 }
+>>
+@end lilypond
+
+@item
+Minor
+@tab
+Minor third, @*perfect fifth
+@tab
+@code{m} or @code{m5}
+@tab
+@code{c1:m}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:m }
+  \chordmode { c1:m }
+>>
+@end lilypond
+
+@item
+Augmented
+@tab
+Major third, @*augmented fifth
+@tab
+@code{aug}
+@tab
+@code{c1:aug}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:aug }
+  \chordmode { c1:aug }
+>>
+@end lilypond
+
+@item
+Diminished
+@tab
+Minor third, @*diminished fifth
+@tab
+@code{dim}
+@tab
+@code{c1:dim}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:dim }
+  \chordmode { c1:dim }
+>>
+@end lilypond
+
+@item
+Dominant seventh
+@tab
+Major triad, @*minor seventh
+@tab
+@code{7}
+@tab
+@code{c1:7}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:7 }
+  \chordmode { c1:7 }
+>>
+@end lilypond
+
+@item
+Major seventh
+@tab
+Major triad, @*major seventh
+@tab
+@code{maj7} or @code{maj}
+@tab
+@code{c1:maj7}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:maj7 }
+  \chordmode { c1:maj7 }
+>>
+@end lilypond
+
+@item
+Minor seventh
+@tab
+Minor triad, @*minor seventh
+@tab
+@code{m7}
+@tab
+@code{c1:m7}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:m7 }
+  \chordmode { c1:m7 }
+>>
+@end lilypond
+
+@item
+Diminished @*seventh
+@tab
+Diminished triad, @*diminished seventh
+@tab
+@code{dim7}
+@tab
+@code{c1:dim7}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:dim7}
+  \chordmode { c1:dim7 }
+>>
+@end lilypond
+
+@item
+Augmented @*seventh
+@tab
+Augmented triad, @*minor seventh
+@tab
+@code{aug7}
+@tab
+@code{c1:aug7}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:aug7 }
+  \chordmode { c1:aug7 }
+>>
+@end lilypond
+
+@item
+Half-diminished @*seventh
+@tab
+Diminished triad, @*minor seventh
+@tab
+@code{m7.5-}
+@tab
+@code{c1:m7.5-}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:m7.5- }
+  \chordmode { c1:m7.5- }
+>>
+@end lilypond
+
+@item
+Minor-major @*seventh
+@tab
+Minor triad, @*major seventh
+@tab
+@code{m7+}
+@tab
+@code{c1:m7+}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:m7+ }
+  \chordmode { c1:m7+ }
+>>
+@end lilypond
+
+@item
+Major sixth
+@tab
+Major triad, @*sixth
+@tab
+@code{6}
+@tab
+@code{c1:6}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:6 }
+  \chordmode { c1:6 }
+>>
+@end lilypond
+
+@item
+Minor sixth
+@tab
+Minor triad, @*sixth
+@tab
+@code{m6}
+@tab
+@code{c1:m6}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:m6 }
+  \chordmode { c1:m6 }
+>>
+@end lilypond
+
+@item
+Dominant ninth
+@tab
+Dominant seventh, @*major ninth
+@tab
+@code{9}
+@tab
+@code{c1:9}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:9 }
+  \chordmode { c1:9 }
+>>
+@end lilypond
+
+@item
+Major ninth
+@tab
+Major seventh, @*major ninth
+@tab
+@code{maj9}
+@tab
+@code{c1:maj9}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:maj9 }
+  \chordmode { c1:maj9 }
+>>
+@end lilypond
+
+@item
+Minor ninth
+@tab
+Minor seventh, @*major ninth
+@tab
+@code{m9}
+@tab
+@code{c1:m9}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:m9 }
+  \chordmode { c1:m9 }
+>>
+@end lilypond
+
+@item
+Dominant eleventh
+@tab
+Dominant ninth, @*perfect eleventh
+@tab
+@code{11}
+@tab
+@code{c1:11}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:11 }
+  \chordmode { c1:11 }
+>>
+@end lilypond
+
+@item
+Major eleventh
+@tab
+Major ninth, @*perfect eleventh
+@tab
+@code{maj11}
+@tab
+@code{c1:maj11}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:maj11 }
+  \chordmode { c1:maj11 }
+>>
+@end lilypond
+
+@item
+Minor eleventh
+@tab
+Minor ninth, @*perfect eleventh
+@tab
+@code{m11}
+@tab
+@code{c1:m11}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:m11 }
+  \chordmode { c1:m11 }
+>>
+@end lilypond
+
+@item
+Dominant @*thirteenth
+@tab
+Dominant ninth, @*major thirteenth
+@tab
+@code{13}
+@tab
+@code{c1:13}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:13 }
+  \chordmode { c1:13 }
+>>
+@end lilypond
+
+@item
+Dominant @*thirteenth
+@tab
+Dominant eleventh, @*major thirteenth
+@tab
+@code{13.11}
+@tab
+@code{c1:13.11}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords{ c1:13.11 }
+  \chordmode { c1:13.11 }
+>>
+@end lilypond
+
+@item
+Major thirteenth
+@tab
+Major eleventh, @*major thirteenth
+@tab
+@code{maj13.11}
+@tab
+@code{c1:maj13.11}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:maj13.11 }
+  \chordmode { c1:maj13.11 }
+>>
+@end lilypond
+
+@item
+Minor thirteenth
+@tab
+Minor eleventh, @*major thirteenth
+@tab
+@code{m13.11}
+@tab
+@code{c1:m13.11}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:m13.11 }
+  \chordmode { c1:m13.11 }
+>>
+@end lilypond
+
+@item
+Suspended second
+@tab
+Major second, @*perfect fifth
+@tab
+@code{sus2}
+@tab
+@code{c1:sus2}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:sus2 }
+  \chordmode { c1:sus2 }
+>>
+@end lilypond
+
+@item
+Suspended fourth
+@tab
+Perfect fourth, @*perfect fifth
+@tab
+@code{sus4}
+@tab
+@code{c1:sus4}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+<<
+  \chords { c1:sus4 }
+  \chordmode { c1:sus4 }
+>>
+@end lilypond
+
+@item
+Power chord @*(two-voiced)
+@tab
+Perfect fifth
+@tab
+@code{1.5}
+@tab
+@code{c1:5}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+\chordmode {c1:5 }
+@end lilypond
+
+@item
+Power chord @*@w{(three-voiced)}
+@tab
+Perfect fifth, @*octave
+@tab
+@code{1.5.8}
+@tab
+@code{c1:5.8}
+@tab
+@lilypond[inline,line-width=2.1\cm,noragged-right,notime]
+  \chordmode {c1:5.8 }
+@end lilypond
+
+@end multitable
+
+@node Predefined string tunings
+@appendixsec Predefined string tunings
+
+The chart below shows the predefined string tunings.
+
+@lilypondfile{en/included/display-predefined-string-tunings.ly}
+
+@node Predefined fretboard diagrams
+@appendixsec Predefined fretboard diagrams
+
+@menu
+* Diagrams for Guitar::
+* Diagrams for Ukulele::
+* Diagrams for Mandolin::
+@end menu
+
+@node Diagrams for Guitar
+@unnumberedsubsec Diagrams for Guitar
+
+@lilypondfile[line-width=15.5\cm]{en/included/display-predefined-fretboards.ly}
+
+@node Diagrams for Ukulele
+@unnumberedsubsec Diagrams for Ukulele
+
+@lilypondfile[line-width=15.5\cm]{en/included/display-predefined-ukulele-fretboards.ly}
+
+@node Diagrams for Mandolin
+@unnumberedsubsec Diagrams for Mandolin
+
+@lilypondfile[line-width=15.5\cm]{en/included/display-predefined-mandolin-fretboards.ly}
+
+
+@node Predefined paper sizes
+@appendixsec Predefined paper sizes
+
+Paper sizes are defined in file @file{scm/paper.scm}.
+
+@include en/paper-sizes.tely
+
+@node MIDI instruments
+@appendixsec MIDI instruments
+
+The following is a list of names that can be used for the
+@code{midiInstrument} property.  Each is presented with its number
+among the General MIDI Standard's 128 Program Numbers.
+
+@include en/included/midi-instruments.itexi
+
+The drum kits listed below are also possible.
+
+@include en/included/midi-drum-kits.itexi
+
+@node List of colors
+@appendixsec List of colors
+
+@subsubheading Normal colors
+
+Usage syntax is detailed in @ref{Coloring objects}.
+
+@cindex list of colors
+@cindex color, list of
+
+@indentedBlock
+@multitable {@code{darkcyan}} {@code{darkmagenta}} {@code{darkyellow}} {@code{darkblue}}
+@item @code{black}
+  @tab @code{white}
+  @tab @code{red}
+  @tab @code{green}
+@item @code{blue}
+  @tab @code{cyan}
+  @tab @code{magenta}
+  @tab @code{yellow}
+@item @code{grey}
+  @tab @code{darkred}
+  @tab @code{darkgreen}
+  @tab @code{darkblue}
+@item @code{darkcyan}
+  @tab @code{darkmagenta}
+  @tab @code{darkyellow}
+@end multitable
+@endIndentedBlock
+
+
+@subsubheading CSS color names
+
+CSS color names may be used as-is in string arguments.
+
+@indentedBlock
+@multitable {@code{blanchedalmond}} {@code{lightgoldenrodyellow}} {@code{mediumspringgreen}} {@code{rebeccapurple}}
+@item @code{aliceblue}
+  @tab @code{darkturquoise}
+  @tab @code{lightsalmon}
+  @tab @code{papayawhip}
+@item @code{antiquewhite}
+  @tab @code{darkviolet}
+  @tab @code{lightseagreen}
+  @tab @code{peachpuff}
+@item @code{aqua}
+  @tab @code{deeppink}
+  @tab @code{lightskyblue}
+  @tab @code{peru}
+@item @code{aquamarine}
+  @tab @code{deepskyblue}
+  @tab @code{lightslategray}
+  @tab @code{pink}
+@item @code{azure}
+  @tab @code{dimgray}
+  @tab @code{lightslategrey}
+  @tab @code{plum}
+@item @code{beige}
+  @tab @code{dimgrey}
+  @tab @code{lightsteelblue}
+  @tab @code{powderblue}
+@item @code{bisque}
+  @tab @code{dodgerblue}
+  @tab @code{lightyellow}
+  @tab @code{purple}
+@item @code{black}
+  @tab @code{firebrick}
+  @tab @code{lime}
+  @tab @code{rebeccapurple}
+@item @code{blanchedalmond}
+  @tab @code{floralwhite}
+  @tab @code{limegreen}
+  @tab @code{red}
+@item @code{blue}
+  @tab @code{forestgreen}
+  @tab @code{linen}
+  @tab @code{rosybrown}
+@item @code{blueviolet}
+  @tab @code{fuchsia}
+  @tab @code{magenta}
+  @tab @code{royalblue}
+@item @code{brown}
+  @tab @code{gainsboro}
+  @tab @code{maroon}
+  @tab @code{saddlebrown}
+@item @code{burlywood}
+  @tab @code{ghostwhite}
+  @tab @code{mediumaquamarine}
+  @tab @code{salmon}
+@item @code{cadetblue}
+  @tab @code{gold}
+  @tab @code{mediumblue}
+  @tab @code{sandybrown}
+@item @code{chartreuse}
+  @tab @code{goldenrod}
+  @tab @code{mediumorchid}
+  @tab @code{seagreen}
+@item @code{chocolate}
+  @tab @code{gray}
+  @tab @code{mediumpurple}
+  @tab @code{seashell}
+@item @code{coral}
+  @tab @code{green}
+  @tab @code{mediumseagreen}
+  @tab @code{sienna}
+@item @code{cornflowerblue}
+  @tab @code{greenyellow}
+  @tab @code{mediumslateblue}
+  @tab @code{silver}
+@item @code{cornsilk}
+  @tab @code{grey}
+  @tab @code{mediumspringgreen}
+  @tab @code{skyblue}
+@item @code{crimson}
+  @tab @code{honeydew}
+  @tab @code{mediumturquoise}
+  @tab @code{slateblue}
+@item @code{cyan}
+  @tab @code{hotpink}
+  @tab @code{mediumvioletred}
+  @tab @code{slategray}
+@item @code{darkblue}
+  @tab @code{indianred}
+  @tab @code{midnightblue}
+  @tab @code{slategrey}
+@item @code{darkcyan}
+  @tab @code{indigo}
+  @tab @code{mintcream}
+  @tab @code{snow}
+@item @code{darkgoldenrod}
+  @tab @code{ivory}
+  @tab @code{mistyrose}
+  @tab @code{springgreen}
+@item @code{darkgray}
+  @tab @code{khaki}
+  @tab @code{moccasin}
+  @tab @code{steelblue}
+@item @code{darkgreen}
+  @tab @code{lavender}
+  @tab @code{navajowhite}
+  @tab @code{tan}
+@item @code{darkgrey}
+  @tab @code{lavenderblush}
+  @tab @code{navy}
+  @tab @code{teal}
+@item @code{darkkhaki}
+  @tab @code{lawngreen}
+  @tab @code{oldlace}
+  @tab @code{thistle}
+@item @code{darkmagenta}
+  @tab @code{lemonchiffon}
+  @tab @code{olive}
+  @tab @code{tomato}
+@item @code{darkolivegreen}
+  @tab @code{lightblue}
+  @tab @code{olivedrab}
+  @tab @code{turquoise}
+@item @code{darkorange}
+  @tab @code{lightcoral}
+  @tab @code{orange}
+  @tab @code{violet}
+@item @code{darkorchid}
+  @tab @code{lightcyan}
+  @tab @code{orangered}
+  @tab @code{wheat}
+@item @code{darkred}
+  @tab @code{lightgoldenrodyellow}
+  @tab @code{orchid}
+  @tab @code{white}
+@item @code{darksalmon}
+  @tab @code{lightgray}
+  @tab @code{palegoldenrod}
+  @tab @code{whitesmoke}
+@item @code{darkseagreen}
+  @tab @code{lightgreen}
+  @tab @code{palegreen}
+  @tab @code{yellow}
+@item @code{darkslateblue}
+  @tab @code{lightgrey}
+  @tab @code{paleturquoise}
+  @tab @code{yellowgreen}
+@item @code{darkslategray}
+  @tab @code{lightpink}
+  @tab @code{palevioletred}
+@item @code{darkslategrey}
+@end multitable
+@endIndentedBlock
+
+CSS color definitions differ from X color names for the following
+colors: @code{green}, @code{grey}, @code{maroon}, @code{purple}.
+
+
+@subsubheading X color names
+
+@uref{https://en.wikipedia.org/wiki/X11_color_names, X11 color names}
+offer a wider choice than CSS names.  They come in several variants:
+
+@itemize @bullet
+@item
+Any name that is spelled as a single word with capitalization
+(e.g., @q{LightSlateBlue}) can also be spelled as space-separated
+words with or without capitalization (e.g., @q{light slate blue}).
+
+@item
+The word @q{grey} can always be spelled @q{gray} (e.g.,
+@q{DarkSlateGray}), without any difference in the output.
+
+@item
+Some names can take a numerical suffix (e.g., @q{LightSalmon4}).
+@end itemize
+
+@funindex x11-color
+
+Use the Scheme function @code{x11-color} to access them.
+
+The following tables present all color names that may be used
+without a numerical suffix, and then the subset of these that
+may be used with such a suffix.
+
+
+@subsubheading Color Names without a numerical suffix
+
+@indentedBlock
+@multitable {@code{BlanchedAlmond}} {@code{LightGoldenrodYellow}} {@code{PaleGoldenrod}} {@code{firebrick}}
+@item @code{AliceBlue}
+  @tab @code{LawnGreen}
+  @tab @code{OrangeRed}
+  @tab @code{firebrick}
+@item @code{AntiqueWhite}
+  @tab @code{LemonChiffon}
+  @tab @code{PaleGoldenrod}
+  @tab @code{gainsboro}
+@item @code{BlanchedAlmond}
+  @tab @code{LightBlue}
+  @tab @code{PaleGreen}
+  @tab @code{gold}
+@item @code{BlueViolet}
+  @tab @code{LightCoral}
+  @tab @code{PaleTurquoise}
+  @tab @code{goldenrod}
+@item @code{CadetBlue}
+  @tab @code{LightCyan}
+  @tab @code{PaleVioletRed}
+  @tab @code{green}
+@item @code{CornflowerBlue}
+  @tab @code{LightGoldenrod}
+  @tab @code{PapayaWhip}
+  @tab @code{grey}
+@item @code{DarkBlue}
+  @tab @code{LightGoldenrodYellow}
+  @tab @code{PeachPuff}
+  @tab @code{honeydew}
+@item @code{DarkCyan}
+  @tab @code{LightGreen}
+  @tab @code{PowderBlue}
+  @tab @code{ivory}
+@item @code{DarkGoldenrod}
+  @tab @code{LightGrey}
+  @tab @code{RosyBrown}
+  @tab @code{khaki}
+@item @code{DarkGreen}
+  @tab @code{LightPink}
+  @tab @code{RoyalBlue}
+  @tab @code{lavender}
+@item @code{DarkGrey}
+  @tab @code{LightSalmon}
+  @tab @code{SaddleBrown}
+  @tab @code{linen}
+@item @code{DarkKhaki}
+  @tab @code{LightSeaGreen}
+  @tab @code{SandyBrown}
+  @tab @code{magenta}
+@item @code{DarkMagenta}
+  @tab @code{LightSkyBlue}
+  @tab @code{SeaGreen}
+  @tab @code{maroon}
+@item @code{DarkOliveGreen}
+  @tab @code{LightSlateBlue}
+  @tab @code{SkyBlue}
+  @tab @code{moccasin}
+@item @code{DarkOrange}
+  @tab @code{LightSlateGrey}
+  @tab @code{SlateBlue}
+  @tab @code{navy}
+@item @code{DarkOrchid}
+  @tab @code{LightSteelBlue}
+  @tab @code{SlateGrey}
+  @tab @code{orange}
+@item @code{DarkRed}
+  @tab @code{LightYellow}
+  @tab @code{SpringGreen}
+  @tab @code{orchid}
+@item @code{DarkSalmon}
+  @tab @code{LimeGreen}
+  @tab @code{SteelBlue}
+  @tab @code{peru}
+@item @code{DarkSeaGreen}
+  @tab @code{MediumAquamarine}
+  @tab @code{VioletRed}
+  @tab @code{pink}
+@item @code{DarkSlateBlue}
+  @tab @code{MediumBlue}
+  @tab @code{WhiteSmoke}
+  @tab @code{plum}
+@item @code{DarkSlateGrey}
+  @tab @code{MediumOrchid}
+  @tab @code{YellowGreen}
+  @tab @code{purple}
+@item @code{DarkTurquoise}
+  @tab @code{MediumPurple}
+  @tab @code{aquamarine}
+  @tab @code{red}
+@item @code{DarkViolet}
+  @tab @code{MediumSeaGreen}
+  @tab @code{azure}
+  @tab @code{salmon}
+@item @code{DeepPink}
+  @tab @code{MediumSlateBlue}
+  @tab @code{beige}
+  @tab @code{seashell}
+@item @code{DeepSkyBlue}
+  @tab @code{MediumSpringGreen}
+  @tab @code{bisque}
+  @tab @code{sienna}
+@item @code{DimGrey}
+  @tab @code{MediumTurquoise}
+  @tab @code{black}
+  @tab @code{snow}
+@item @code{DodgerBlue}
+  @tab @code{MediumVioletRed}
+  @tab @code{blue}
+  @tab @code{tan}
+@item @code{FloralWhite}
+  @tab @code{MidnightBlue}
+  @tab @code{brown}
+  @tab @code{thistle}
+@item @code{ForestGreen}
+  @tab @code{MintCream}
+  @tab @code{burlywood}
+  @tab @code{tomato}
+@item @code{GhostWhite}
+  @tab @code{MistyRose}
+  @tab @code{chartreuse}
+  @tab @code{turquoise}
+@item @code{GreenYellow}
+  @tab @code{NavajoWhite}
+  @tab @code{chocolate}
+  @tab @code{violet}
+@item @code{HotPink}
+  @tab @code{NavyBlue}
+  @tab @code{coral}
+  @tab @code{wheat}
+@item @code{IndianRed}
+  @tab @code{OldLace}
+  @tab @code{cornsilk}
+  @tab @code{white}
+@item @code{LavenderBlush}
+  @tab @code{OliveDrab}
+  @tab @code{cyan}
+  @tab @code{yellow}
+@end multitable
+@endIndentedBlock
+
+
+@subsubheading Color names with a numerical suffix
+
+In the following names the suffix@tie{}@var{N} must be an integer
+between 1 and@tie{}4, from lighter to darker shades:
+
+@indentedBlock
+@multitable {@code{DarkOliveGreen@var{N}}} {@code{LightSteelBlue@var{N}}} {@code{aquamarine@var{N}}} {@code{turquoise@var{N}}}
+@item @code{AntiqueWhite@var{N}}
+  @tab @code{LightSkyBlue@var{N}}
+  @tab @code{SteelBlue@var{N}}
+  @tab @code{khaki@var{N}}
+@item @code{CadetBlue@var{N}}
+  @tab @code{LightSteelBlue@var{N}}
+  @tab @code{VioletRed@var{N}}
+  @tab @code{magenta@var{N}}
+@item @code{DarkGoldenrod@var{N}}
+  @tab @code{LightYellow@var{N}}
+  @tab @code{aquamarine@var{N}}
+  @tab @code{maroon@var{N}}
+@item @code{DarkOliveGreen@var{N}}
+  @tab @code{MediumOrchid@var{N}}
+  @tab @code{azure@var{N}}
+  @tab @code{orange@var{N}}
+@item @code{DarkOrange@var{N}}
+  @tab @code{MediumPurple@var{N}}
+  @tab @code{bisque@var{N}}
+  @tab @code{orchid@var{N}}
+@item @code{DarkOrchid@var{N}}
+  @tab @code{MistyRose@var{N}}
+  @tab @code{blue@var{N}}
+  @tab @code{pink@var{N}}
+@item @code{DarkSeaGreen@var{N}}
+  @tab @code{NavajoWhite@var{N}}
+  @tab @code{brown@var{N}}
+  @tab @code{plum@var{N}}
+@item @code{DeepPink@var{N}}
+  @tab @code{OliveDrab@var{N}}
+  @tab @code{burlywood@var{N}}
+  @tab @code{purple@var{N}}
+@item @code{DeepSkyBlue@var{N}}
+  @tab @code{OrangeRed@var{N}}
+  @tab @code{chartreuse@var{N}}
+  @tab @code{red@var{N}}
+@item @code{DodgerBlue@var{N}}
+  @tab @code{PaleGreen@var{N}}
+  @tab @code{chocolate@var{N}}
+  @tab @code{salmon@var{N}}
+@item @code{HotPink@var{N}}
+  @tab @code{PaleTurquoise@var{N}}
+  @tab @code{coral@var{N}}
+  @tab @code{seashell@var{N}}
+@item @code{IndianRed@var{N}}
+  @tab @code{PaleVioletRed@var{N}}
+  @tab @code{cornsilk@var{N}}
+  @tab @code{sienna@var{N}}
+@item @code{LavenderBlush@var{N}}
+  @tab @code{PeachPuff@var{N}}
+  @tab @code{cyan@var{N}}
+  @tab @code{snow@var{N}}
+@item @code{LemonChiffon@var{N}}
+  @tab @code{RosyBrown@var{N}}
+  @tab @code{firebrick@var{N}}
+  @tab @code{tan@var{N}}
+@item @code{LightBlue@var{N}}
+  @tab @code{RoyalBlue@var{N}}
+  @tab @code{gold@var{N}}
+  @tab @code{thistle@var{N}}
+@item @code{LightCyan@var{N}}
+  @tab @code{SeaGreen@var{N}}
+  @tab @code{goldenrod@var{N}}
+  @tab @code{tomato@var{N}}
+@item @code{LightGoldenrod@var{N}}
+  @tab @code{SkyBlue@var{N}}
+  @tab @code{green@var{N}}
+  @tab @code{turquoise@var{N}}
+@item @code{LightPink@var{N}}
+  @tab @code{SlateBlue@var{N}}
+  @tab @code{honeydew@var{N}}
+  @tab @code{wheat@var{N}}
+@item @code{LightSalmon@var{N}}
+  @tab @code{SpringGreen@var{N}}
+  @tab @code{ivory@var{N}}
+  @tab @code{yellow@var{N}}
+@end multitable
+@endIndentedBlock
+
+
+@subsubheading Grey Scale
+
+A grey scale can be obtained using:
+
+@display
+@code{grey@var{N}}
+@end display
+
+@noindent
+Where @var{N} is in the range 0--100.
+
+
+@subsubheading Color-blind-safe colors
+
+@funindex universal-color
+@cindex color, suitable for dichromatism
+@cindex dichromatism, suitable colors
+
+The Scheme function @code{universal-@/color} provides
+@uref{https://jfly.uni-koeln.de/color, a set of eight colors}
+designed to be unambiguous to people with dichromatism.
+
+@indentedBlock
+@multitable {@code{yellow}} {@code{orange}} {@code{vermillion}} {@code{bluegreen}}
+@item @code{black}
+  @tab @code{orange}
+  @tab @code{skyblue}
+  @tab @code{bluegreen}
+@item @code{yellow}
+  @tab @code{blue}
+  @tab @code{vermillion}
+  @tab @code{redpurple}
+@end multitable
+@endIndentedBlock
+
+
+@node The Emmentaler font
+@appendixsec The Emmentaler font
+
+
+@cindex Emmentaler font
+@cindex font, Emmentaler
+@cindex Feta font
+@cindex font, Feta
+@cindex Parmesan font
+@cindex font, Parmesan
+
+The Emmentaler font consists of two @emph{subsets} of glyphs.
+@qq{Feta}, used for classical notation and @qq{Parmesan}, used for
+Ancient notation.
+
+Any glyph within the Emmentaler font can be accessed directly by using
+text markup along with the name of the glyph (as shown in the tables
+below).  For example;
+
+@example
+g^\markup @{\musicglyph "scripts.segno" @}
+@end example
+
+@noindent
+or
+
+@example
+\markup @{\musicglyph "five"@}
+@end example
+
+For more information see @ref{Formatting text}.
+
+
+@menu
+* Clef glyphs::
+* Time Signature glyphs::
+* Number glyphs::
+* Figured bass symbol glyphs::
+* Accidental glyphs::
+* Default note head glyphs::
+* Special note head glyphs::
+* Note head glyphs for shape notes::
+* Rest glyphs::
+* Flag glyphs::
+* Dot glyphs::
+* Dynamic glyphs::
+* Script glyphs::
+* Arrowhead glyphs::
+* Bracket-tip glyphs::
+* Pedal glyphs::
+* Accordion glyphs::
+* Tie glyphs::
+* Vaticana glyphs::
+* Medicaea glyphs::
+* Hufnagel glyphs::
+* Mensural glyphs::
+* Neomensural glyphs::
+* Petrucci glyphs::
+* Solesmes glyphs::
+* Kievan Notation glyphs::
+@end menu
+
+
+@c `texinfo.tex` inserts `\medskip` between images, which is far
+@c too much vertical distance for the glyph listings.  We thus
+@c set it to zero temporarily.
+
+@iftex
+@tex
+\global\let\medskipold = \medskip
+\global\let\medskip = \relax
+@end tex
+@end iftex
+
+
+@node Clef glyphs
+@unnumberedsubsec Clef glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #clefs
+@end lilypond
+
+
+@node Time Signature glyphs
+@unnumberedsubsec Time Signature glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #timesig
+@end lilypond
+
+
+@node Number glyphs
+@unnumberedsubsec Number glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #numbers
+@end lilypond
+
+
+@node Figured bass symbol glyphs
+@unnumberedsubsec Figured bass symbol glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #figured-bass-symbols
+@end lilypond
+
+
+@node Accidental glyphs
+@unnumberedsubsec Accidental glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #accidentals
+@end lilypond
+
+
+@node Default note head glyphs
+@unnumberedsubsec Default note head glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #default-noteheads
+@end lilypond
+
+
+@node Special note head glyphs
+@unnumberedsubsec Special note head glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #special-noteheads
+@end lilypond
+
+
+@node Note head glyphs for shape notes
+@unnumberedsubsec Note head glyphs for shape notes
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #shape-note-noteheads
+@end lilypond
+
+
+@node Rest glyphs
+@unnumberedsubsec Rest glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #rests
+@end lilypond
+
+
+@node Flag glyphs
+@unnumberedsubsec Flag glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #flags
+@end lilypond
+
+
+@node Dot glyphs
+@unnumberedsubsec Dot glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #dots
+@end lilypond
+
+
+@node Dynamic glyphs
+@unnumberedsubsec Dynamic glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #dynamics
+@end lilypond
+
+
+@node Script glyphs
+@unnumberedsubsec Script glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #scripts
+@end lilypond
+
+
+@node Arrowhead glyphs
+@unnumberedsubsec Arrowhead glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #arrowheads
+@end lilypond
+
+
+@node Bracket-tip glyphs
+@unnumberedsubsec Bracket-tip glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #brackettips
+@end lilypond
+
+
+@node Pedal glyphs
+@unnumberedsubsec Pedal glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #pedal
+@end lilypond
+
+
+@node Accordion glyphs
+@unnumberedsubsec Accordion glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #accordion
+@end lilypond
+
+
+@node Tie glyphs
+@unnumberedsubsec Tie glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #ties
+@end lilypond
+
+
+@node Vaticana glyphs
+@unnumberedsubsec Vaticana glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #vaticana
+@end lilypond
+
+
+@node Medicaea glyphs
+@unnumberedsubsec Medicaea glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #medicaea
+@end lilypond
+
+
+@node Hufnagel glyphs
+@unnumberedsubsec Hufnagel glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #hufnagel
+@end lilypond
+
+
+@node Mensural glyphs
+@unnumberedsubsec Mensural glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #mensural
+@end lilypond
+
+
+@node Neomensural glyphs
+@unnumberedsubsec Neomensural glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #neomensural
+@end lilypond
+
+
+@node Petrucci glyphs
+@unnumberedsubsec Petrucci glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #petrucci
+@end lilypond
+
+
+@node Solesmes glyphs
+@unnumberedsubsec Solesmes glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+            \doc-chars #solesmes
+@end lilypond
+
+@node Kievan Notation glyphs
+@unnumberedsubsec Kievan Notation glyphs
+
+@lilypond[quote]
+\include "en/included/font-table.ly"
+\markuplist \override-lines #'(word-space . 4)
+	     \doc-chars #kievan
+@end lilypond
+
+
+@c Undo local change to `\medskip`.
+
+@iftex
+@tex
+\global\let\medskip = \medskipold
+@end tex
+@end iftex
+
+
+@node Note head styles
+@appendixsec Note head styles
+
+@cindex note head style
+The following styles may be used for note heads.
+
+@lilypondfile[noindent]{en/included/note-head-style.ly}
+
+
+@node Accidental glyph sets
+@appendixsec Accidental glyph sets
+
+@cindex glyph set, accidental
+@cindex accidental glyph set
+
+The following sets of accidental glyphs are available.
+
+@lilypondfile[noindent]{en/included/accidental-glyph-set.ly}
+
+
+@node Clef styles
+@appendixsec Clef styles
+
+The following table shows all the clef styles possible (including where
+@emph{middle C} sits relative to the clef).
+
+@cindex treble clef
+@cindex clef, treble
+@cindex violin clef
+@cindex clef, violin
+@cindex clef, G
+@cindex clef, G2
+@cindex clef, GG
+@cindex clef, tenor G
+@cindex tenor G clef
+@cindex clef, french
+@cindex French clef
+@cindex clef, soprano
+@cindex soprano clef
+@cindex clef, mezzosoprano
+@cindex mezzosoprano clef
+@cindex clef, alto
+@cindex alto clef
+@cindex clef, C
+@cindex C clef
+@cindex clef, varC
+@cindex varC clef
+@cindex clef, alto varC
+@cindex alto varC clef
+@cindex clef, tenor
+@cindex tenor clef
+@cindex clef, tenor varC
+@cindex tenor varC clef
+@cindex clef, baritone varC
+@cindex baritone varC clef
+@cindex clef, varbaritone
+@cindex baritone clef
+@cindex clef, baritone varF
+@cindex baritone varF clef
+@cindex clef, bass
+@cindex bass clef
+@cindex clef, F
+@cindex F clef
+@cindex clef, subbass
+@cindex subbass clef
+@cindex clef, percussion
+@cindex percussion clef
+@cindex clef, tab
+@cindex tab clef
+@cindex clef style
+@cindex ancient music clef
+@cindex clef, ancient music
+@cindex clef, Petrucci
+@cindex clef, mensural
+@cindex clef, blackmensural
+@cindex clef, Kievan
+@cindex Petrucci clef
+@cindex mensural clef
+@cindex blackmensural clef
+@cindex Kievan clef
+
+@menu
+* Standard clefs::
+* Percussion staff clef::
+* Tab staff clefs::
+* Ancient music clefs::
+@end menu
+
+@node Standard clefs
+@unnumberedsubsec Standard clefs
+
+@multitable @columnfractions .3 .18 .34 .18
+
+@headitem
+Example
+@tab
+Output
+@tab
+Example
+@tab
+Output
+
+@item
+@code{\clef G}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef G c1
+@end lilypond
+
+@tab
+@code{\clef "G2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef "G2"
+c1
+@end lilypond
+
+@item
+@code{\clef treble}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef treble
+c1
+@end lilypond
+
+@tab
+@code{\clef violin}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef violin
+c1
+@end lilypond
+
+@item
+@code{\clef french}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef french
+c1
+@end lilypond
+@tab
+@code{\clef GG}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef GG
+c1
+@end lilypond
+
+@item
+@code{\clef tenorG}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef tenorG
+c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef soprano}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef soprano
+c1
+@end lilypond
+@tab
+@code{\clef mezzosoprano}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef mezzosoprano
+c1
+@end lilypond
+
+@item
+@code{\clef C}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef C
+c1
+@end lilypond
+@tab
+@code{\clef alto}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef alto
+c1
+@end lilypond
+
+@item
+@code{\clef tenor}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef tenor
+c1
+@end lilypond
+@tab
+@code{\clef baritone}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef baritone
+c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef varC}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef varC
+c1
+@end lilypond
+@tab
+@code{\clef altovarC}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef altovarC
+c1
+@end lilypond
+
+@item
+@code{\clef tenorvarC}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef tenorvarC
+c1
+@end lilypond
+@tab
+@code{\clef baritonevarC}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef baritonevarC
+c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef varbaritone}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef varbaritone
+c1
+@end lilypond
+@tab
+@code{\clef baritonevarF}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef baritonevarF
+c1
+@end lilypond
+
+@item
+@code{\clef F}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef F
+c1
+@end lilypond
+@tab
+@code{\clef bass}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef bass
+c1
+@end lilypond
+
+@item
+@code{\clef subbass}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef subbass
+c1
+@end lilypond
+
+@end multitable
+
+
+@node Percussion staff clef
+@unnumberedsubsec Percussion staff clef
+
+@multitable @columnfractions .3 .18 .34 .18
+
+@headitem
+Example
+@tab
+Output
+@tab
+Example
+@tab
+Output
+
+@item
+@code{\clef percussion}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef percussion
+c1
+@end lilypond
+@tab
+@code{\clef varpercussion}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\clef varpercussion
+c1
+@end lilypond
+
+@end multitable
+
+
+@node Tab staff clefs
+@unnumberedsubsec Tab staff clefs
+
+@multitable @columnfractions .3 .18 .34 .18
+
+@headitem
+Example
+@tab
+Output
+@tab
+Example
+@tab
+Output
+
+@item
+@c @example does not work as expected within multitables
+@code{
+\new TabStaff @{ @*
+@ @ \clef tab @*
+@}
+}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\new TabStaff {
+  \clef tab
+  c1
+}
+@end lilypond
+@tab
+@c @example does not work as expected within multitables
+@code{
+\new TabStaff @{ @*
+@ @ \clef moderntab @*
+@}
+}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+\new TabStaff {
+  \clef moderntab
+  c1
+}
+@end lilypond
+
+@end multitable
+
+
+@node Ancient music clefs
+@unnumberedsubsec Ancient music clefs
+
+@unnumberedsubsubsec Gregorian
+
+@multitable @columnfractions .3 .18 .34 .18
+
+@headitem
+Example
+@tab
+Output
+@tab
+Example
+@tab
+Output
+
+@item
+@code{\clef "vaticana-do1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "vaticana-do1"
+  \override NoteHead.style = #'vaticana.punctum
+  c1
+@end lilypond
+@tab
+@code{\clef "vaticana-do2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "vaticana-do2"
+  \override NoteHead.style = #'vaticana.punctum
+  c1
+@end lilypond
+
+@item
+@code{\clef "vaticana-do3"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "vaticana-do3"
+  \override NoteHead.style = #'vaticana.punctum
+  c1
+@end lilypond
+@tab
+@code{\clef "vaticana-fa1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "vaticana-fa1"
+  \override NoteHead.style = #'vaticana.punctum
+  c1
+@end lilypond
+
+@item
+@code{\clef "vaticana-fa2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "vaticana-fa2"
+  \override NoteHead.style = #'vaticana.punctum
+  c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef "medicaea-do1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "medicaea-do1"
+  \override NoteHead.style = #'medicaea.punctum
+  c1
+@end lilypond
+@tab
+@code{\clef "medicaea-do2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "medicaea-do2"
+  \override NoteHead.style = #'medicaea.punctum
+  c1
+@end lilypond
+
+@item
+@code{\clef "medicaea-do3"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "medicaea-do3"
+  \override NoteHead.style = #'medicaea.punctum
+  c1
+@end lilypond
+@tab
+@code{\clef "medicaea-fa1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "medicaea-fa1"
+  \override NoteHead.style = #'medicaea.punctum
+  c1
+@end lilypond
+
+@item
+@code{\clef "medicaea-fa2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "medicaea-fa2"
+  \override NoteHead.style = #'medicaea.punctum
+  c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef "hufnagel-do1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "hufnagel-do1"
+  \override NoteHead.style = #'hufnagel.punctum
+  c1
+@end lilypond
+@tab
+@code{\clef "hufnagel-do2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "hufnagel-do2"
+  \override NoteHead.style = #'hufnagel.punctum
+  c1
+@end lilypond
+
+@item
+@code{\clef "hufnagel-do3"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "hufnagel-do3"
+  \override NoteHead.style = #'hufnagel.punctum
+  c1
+@end lilypond
+@tab
+@code{\clef "hufnagel-fa1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "hufnagel-fa1"
+  \override NoteHead.style = #'hufnagel.punctum
+  c1
+@end lilypond
+
+@item
+@code{\clef "hufnagel-fa2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #4
+  \override Staff.StaffSymbol.color = #red
+  \clef "hufnagel-fa2"
+  \override NoteHead.style = #'hufnagel.punctum
+  c1
+@end lilypond
+@tab
+@code{\clef "hufnagel-do-fa"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \override Staff.StaffSymbol.line-count = #5
+  \override Staff.StaffSymbol.color = #red
+  \clef "hufnagel-do-fa"
+  \override NoteHead.style = #'hufnagel.punctum
+  c1
+@end lilypond
+
+@end multitable
+
+
+@unnumberedsubsubsec Mensural
+
+@multitable @columnfractions .3 .18 .34 .18
+
+@headitem
+Example
+@tab
+Output
+@tab
+Example
+@tab
+Output
+
+@item
+@code{\clef "mensural-c1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "mensural-c1"
+  \override NoteHead.style = #'mensural
+  c1
+@end lilypond
+@tab
+@code{\clef "mensural-c2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "mensural-c2"
+  \override NoteHead.style = #'mensural
+  c1
+@end lilypond
+
+@item
+@code{\clef "mensural-c3"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "mensural-c3"
+  \override NoteHead.style = #'mensural
+  c1
+@end lilypond
+@tab
+@code{\clef "mensural-c4"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "mensural-c4"
+  \override NoteHead.style = #'mensural
+  c1
+@end lilypond
+
+@item
+@code{\clef "mensural-c5"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "mensural-c5"
+  \override NoteHead.style = #'mensural
+  c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef "mensural-f"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "mensural-f"
+  \override NoteHead.style = #'mensural
+  c1
+@end lilypond
+@tab
+@code{\clef "mensural-g"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "mensural-g"
+  \override NoteHead.style = #'mensural
+  c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef "blackmensural-c1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "blackmensural-c1"
+  \override NoteHead.style = #'blackmensural
+  c1
+@end lilypond
+@tab
+@code{\clef "blackmensural-c2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "blackmensural-c2"
+  \override NoteHead.style = #'blackmensural
+  c1
+@end lilypond
+
+@item
+@code{\clef "blackmensural-c3"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "blackmensural-c3"
+  \override NoteHead.style = #'blackmensural
+  c1
+@end lilypond
+@tab
+@code{\clef "blackmensural-c4"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "blackmensural-c4"
+  \override NoteHead.style = #'blackmensural
+  c1
+@end lilypond
+
+@item
+@code{\clef "blackmensural-c5"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "blackmensural-c5"
+  \override NoteHead.style = #'blackmensural
+  c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef "neomensural-c1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "neomensural-c1"
+  \override NoteHead.style = #'neomensural
+  c1
+@end lilypond
+@tab
+@code{\clef "neomensural-c2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "neomensural-c2"
+  \override NoteHead.style = #'neomensural
+  c1
+@end lilypond
+
+@item
+@code{\clef "neomensural-c3"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "neomensural-c3"
+  \override NoteHead.style = #'neomensural
+  c1
+@end lilypond
+@tab
+@code{\clef "neomensural-c4"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "neomensural-c4"
+  \override NoteHead.style = #'neomensural
+  c1
+@end lilypond
+
+@item
+@code{\clef "neomensural-c5"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "neomensural-c5"
+  \override NoteHead.style = #'neomensural
+  c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef "petrucci-c1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-c1"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+@tab
+@code{\clef "petrucci-c2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-c2"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+
+@item
+@code{\clef "petrucci-c3"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-c3"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+@tab
+@code{\clef "petrucci-c4"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-c4"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+
+@item
+@code{\clef "petrucci-c5"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-c5"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef "petrucci-f"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-f"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+@tab
+@code{\clef "petrucci-f2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-f2"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+
+@item
+@code{\clef "petrucci-f3"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-f3"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+@tab
+@code{\clef "petrucci-f4"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-f4"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+
+@item
+@code{\clef "petrucci-f5"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-f5"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+
+@*
+
+@item
+@code{\clef "petrucci-g1"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-g1"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+@tab
+@code{\clef "petrucci-g2"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-g2"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+
+@item
+@code{\clef "petrucci-g"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "petrucci-g"
+  \override NoteHead.style = #'petrucci
+  c1
+@end lilypond
+
+@end multitable
+
+
+@unnumberedsubsubsec Kievan
+
+@multitable @columnfractions .3 .18 .34 .18
+
+@headitem
+Example
+@tab
+Output
+@tab
+@c Example
+@tab
+@c Output
+
+
+@item
+@code{\clef "kievan-do"}
+@tab
+@lilypond[inline,line-width=3\cm,notime,ragged-right,relative=1]
+  \clef "kievan-do"
+  \override NoteHead.style = #'kievan
+  c1
+@end lilypond
+
+@end multitable
+
+
+@node Text markup commands
+@appendixsec Text markup commands
+
+@ignore
+All the .tely files included in this appendix are automatically
+generated from source files during the build.
+For translators: you cannot translate the content of these files.
+@end ignore
+
+@include en/markup-commands.tely
+
+
+@node Text markup list commands
+@appendixsec Text markup list commands
+
+The following commands can all be used with @code{\markuplist}:
+
+@include en/markup-list-commands.tely
+
+
+@node List of special characters
+@appendixsec List of special characters
+
+The following special characters references can be used;
+for more details, @pxref{ASCII aliases}.
+
+The HTML syntax is used and most of these references are the same as HTML.
+The rest of them are inspired by @LaTeX{}.
+
+The characters are boxed so that you can see their size.
+A small padding has been added between the character and the box
+for more readability.
+
+@lilypond[quote]
+\include "special-characters.ly"
+@end lilypond
+
+
+@node List of articulations
+@appendixsec List of articulations
+
+@cindex articulations
+@cindex post-events
+@cindex scripts
+
+In LilyPond's internal logic, an @q{articulation} is any object
+(other than dynamics) that may be attached directly after a rhythmic
+event: notes, chords; even silences and skips, or the empty chord
+construct @code{<>} (see @rlearning{Structure of a note entry}).
+Even slurs, fingerings and text scripts are technically
+articulations, although these are not shown here.
+
+Therefore, the following lists include not only articulation marks,
+but also all other scripts in the Emmentaler font that may be
+attached to notes (the way an accent is entered as @samp{c'\accent}
+or @samp{c'->}).  Each example shows the script in its two possible
+vertical positions: respectively @emph{up} and @emph{down}, as well
+as its default (@emph{neutral}) position.  See also
+@ref{Script glyphs} for a more extensive list of glyphs,
+for use with the @code{\musicglyph} markup command as explained in
+@ref{Music notation inside markup}.
+
+@c Articulations and ornamentations
+@c Fingering instructions (for "thumb")
+@c Common notation for unfretted strings
+@c   Bowing indications
+@c   Harmonics
+@c   Snap (Bartók) pizzicato
+@c Custom percussion staves (for "halfopen" and "stopped")
+@c References for wind instruments (for "open"/"stopped")
+
+
+@menu
+* Articulation scripts::
+* Ornament scripts::
+* Fermata scripts::
+* Instrument-specific scripts::
+* Repeat sign scripts::
+* Ancient scripts::
+@end menu
+
+@ignore
+The @multitable @columnfraction value discrepancy between the first and
+the remaining columns is deliberate; it seems (at least visually
+anyway) the gap (after building the documentation) between first and
+second column examples was always larger than between the remaining
+columns - JL
+@end ignore
+
+@funindex \accent
+@funindex ->
+@funindex \espressivo
+@funindex \marcato
+@funindex -^
+@funindex \portato
+@funindex -_
+@funindex \staccatissimo
+@funindex -!
+@funindex \staccato
+@funindex -.
+@funindex \tenuto
+@funindex --
+@cindex @q{accent} articulation
+@cindex articulation, accent
+@cindex @q{espressivo} articulation
+@cindex articulation, espressivo
+@cindex @q{marcato} articulation
+@cindex articulation, marcato
+@cindex @q{portato} articulation
+@cindex articulation, portato
+@cindex @q{staccatissimo} articulation
+@cindex articulation, staccatissimo
+@cindex @q{staccato} articulation
+@cindex articulation, staccato
+@cindex @q{tenuto} articulation
+@cindex articulation, tenuto
+
+@node Articulation scripts
+@unnumberedsubsec Articulation scripts
+
+@multitable @columnfractions .25 .25 .25 .25
+
+@item
+@code{\accent} or @code{->}
+@lilypond[notime,relative=2]
+f^\accent e,_\accent b'\accent
+@end lilypond
+@tab
+@code{\espressivo}
+@lilypond[notime,relative=2]
+f^\espressivo e,_\espressivo b'\espressivo
+@end lilypond
+@tab
+@code{\marcato} or @code{-^}
+@lilypond[notime,relative=2]
+f^\marcato e,_\marcato b'\marcato
+@end lilypond
+@tab
+@code{\portato} or @code{-_}
+@lilypond[notime,relative=2]
+f^\portato e,_\portato b'\portato
+@end lilypond
+
+@item
+@code{\staccatissimo}@tie{}or@tie{}@code{-!}
+@lilypond[notime,relative=2]
+f^\staccatissimo e,_\staccatissimo b'\staccatissimo
+@end lilypond
+@tab
+
+@c These additional spaces improve the PDF version,
+@c without affecting the HTML rendering. -vv
+
+@code{    \staccato} or @code{-.}
+@lilypond[notime,relative=2]
+f^\staccato e,_\staccato b'\staccato
+@end lilypond
+@tab
+@code{\tenuto} or @code{--}
+@lilypond[notime,relative=2]
+f^\tenuto e,_\tenuto b'\tenuto
+@end lilypond
+
+@end multitable
+
+@funindex \prall
+@funindex \prallup
+@funindex \pralldown
+@funindex \upprall
+@funindex \downprall
+@funindex \prallprall
+@funindex \lineprall
+@funindex \prallmordent
+@funindex \mordent
+@funindex \upmordent
+@funindex \downmordent
+@funindex \trill
+@funindex \turn
+@funindex \reverseturn
+@funindex \slashturn
+@funindex \haydnturn
+@cindex @q{pralltriller} ornament
+@cindex ornament, pralltriller
+@cindex @q{mordent} ornament
+@cindex ornament, mordent
+@cindex @q{pralltriller, long} ornament
+@cindex ornament, pralltriller, long
+@cindex @q{mordent, upper} ornament
+@cindex ornament, mordent, upper
+@cindex @q{mordent, lower} ornament
+@cindex ornament, mordent, lower
+@cindex @q{upper mordent} ornament
+@cindex ornament, upper mordent
+@cindex @q{lower mordent} ornament
+@cindex ornament, lower mordent
+@cindex @q{pralltriller, down} ornament
+@cindex ornament, pralltriller, down
+@cindex @q{pralltriller, up} ornament
+@cindex ornament, pralltriller, up
+@cindex @q{up pralltriller} ornament
+@cindex ornament, up pralltriller
+@cindex @q{down pralltriller} ornament
+@cindex ornament, down pralltriller
+@cindex @q{trill} ornament
+@cindex ornament, trill
+@cindex @q{turn} ornament
+@cindex ornament, turn
+@cindex @q{reverse turn} ornament
+@cindex ornament, reverse turn
+@cindex @q{slash turn} ornament
+@cindex ornament, slash turn
+@cindex @q{Haydn turn} ornament
+@cindex ornament, Haydn turn
+
+@node Ornament scripts
+@unnumberedsubsec Ornament scripts
+
+@multitable @columnfractions .22 .25 .25 .25
+
+@item
+@code{\prall}
+@lilypond[notime,relative=2]
+f^\prall e,_\prall b'\prall
+@end lilypond
+@tab
+@code{\prallup}
+@lilypond[notime,relative=2]
+f^\prallup e,_\prallup b'\prallup
+@end lilypond
+@tab
+@code{\pralldown}
+@lilypond[notime,relative=2]
+f^\pralldown e,_\pralldown b'\pralldown
+@end lilypond
+@tab
+@code{\upprall}
+@lilypond[notime,relative=2]
+f^\upprall e,_\upprall b'\upprall
+@end lilypond
+
+@item
+@code{\downprall}
+@lilypond[notime,relative=2]
+f^\downprall e,_\downprall b'\downprall
+@end lilypond
+@tab
+@code{\prallprall}
+@lilypond[notime,relative=2]
+f^\prallprall e,_\prallprall b'\prallprall
+@end lilypond
+@tab
+@code{\lineprall}
+@lilypond[notime,relative=2]
+f^\lineprall e,_\lineprall b'\lineprall
+@end lilypond
+@tab
+@code{\prallmordent}
+@lilypond[notime,relative=2]
+f^\prallmordent e,_\prallmordent b'\prallmordent
+@end lilypond
+
+@item
+@code{\mordent}
+@lilypond[notime,relative=2]
+f^\mordent e,_\mordent b'\mordent
+@end lilypond
+@tab
+@code{\upmordent}
+@lilypond[notime,relative=2]
+f^\upmordent e,_\upmordent b'\upmordent
+@end lilypond
+@tab
+@code{\downmordent}
+@lilypond[notime,relative=2]
+f^\downmordent e,_\downmordent b'\downmordent
+@end lilypond
+@tab
+@code{\trill}
+@lilypond[notime,relative=2]
+f^\trill e,_\trill b'\trill
+@end lilypond
+
+@item
+@code{\turn}
+@lilypond[notime,relative=2]
+f^\turn e,_\turn b'\reverseturn
+@end lilypond
+@tab
+@code{\reverseturn}
+@lilypond[notime,relative=2]
+f^\reverseturn e,_\reverseturn b'\reverseturn
+@end lilypond
+@tab
+@code{\slashturn}
+@lilypond[notime,relative=2]
+f^\slashturn e,_\slashturn b'\slashturn
+@end lilypond
+@tab
+@code{\haydnturn}
+@lilypond[notime,relative=2]
+f^\haydnturn e,_\haydnturn b'\haydnturn
+@end lilypond
+
+@end multitable
+
+@funindex \fermata
+@funindex \shortfermata
+@funindex \longfermata
+@funindex \veryshortfermata
+@funindex \verylongfermata
+@funindex \henzeshortfermata
+@funindex \henzelongfermata
+@cindex fermata
+@cindex fermata, short
+@cindex short fermata
+@cindex fermata, long
+@cindex long fermata
+@cindex fermata, Henze
+@cindex Henze fermata
+
+@node Fermata scripts
+@unnumberedsubsec Fermata scripts
+
+@multitable @columnfractions .22 .25 .25 .25
+
+@item
+@code{\veryshortfermata}
+@lilypond[notime,relative=2]
+f^\veryshortfermata e,_\veryshortfermata b'\veryshortfermata
+@end lilypond
+@tab
+@code{\shortfermata}
+@lilypond[notime,relative=2]
+f^\shortfermata e,_\shortfermata b'\shortfermata
+@end lilypond
+@tab
+@code{\fermata}
+@lilypond[notime,relative=2]
+f^\fermata e,_\fermata b'\fermata
+@end lilypond
+@tab
+@code{\longfermata}
+@lilypond[notime,relative=2]
+f^\longfermata e,_\longfermata b'\longfermata
+@end lilypond
+
+@item
+@code{\verylongfermata}
+@lilypond[notime,relative=2]
+f^\verylongfermata e,_\verylongfermata b'\verylongfermata
+@end lilypond
+@tab
+@code{\henzeshortfermata}
+@lilypond[notime,relative=2]
+f^\henzeshortfermata e,_\henzeshortfermata b'\henzeshortfermata
+@end lilypond
+@tab
+@code{\henzelongfermata}
+@lilypond[notime,relative=2]
+f^\henzelongfermata e,_\henzelongfermata b'\henzelongfermata
+@end lilypond
+
+@end multitable
+
+@funindex \upbow
+@funindex \downbow
+@funindex \flageolet
+@funindex \open
+@funindex \halfopen
+@funindex \lheel
+@funindex \rheel
+@funindex \ltoe
+@funindex \rtoe
+@funindex \snappizzicato
+@funindex \stopped
+@funindex -+
+@cindex @q{up-bow} bowing indication
+@cindex bowing, up
+@cindex @q{down-bow} bowing indication
+@cindex bowing, down
+@cindex @q{flageolet} harmonics
+@cindex harmonics, flageolet
+@cindex @q{open} articulation
+@cindex articulation, open
+@cindex @q{half open} articulation
+@cindex articulation, half open
+@cindex foot mark
+@cindex organ pedal mark
+@cindex pedal mark, organ
+@cindex @q{heel} pedal mark
+@cindex pedal mark, heel
+@cindex @q{toe} pedal mark
+@cindex pedal mark, toe
+@cindex @q{stopped} articulation
+@cindex articulation, stopped
+@cindex @q{snappizzicato} sign
+@cindex sign, snappizzicato
+@cindex @q{thumb} fingering
+@cindex fingering, thumb
+
+@node Instrument-specific scripts
+@unnumberedsubsec Instrument-specific scripts
+
+@multitable @columnfractions .22 .25 .25 .25
+
+@item
+@code{\upbow}
+@lilypond[notime,relative=2]
+f^\upbow e,_\upbow b'\upbow
+@end lilypond
+@tab
+@code{\downbow}
+@lilypond[notime,relative=2]
+f^\downbow e,_\downbow b'\downbow
+@end lilypond
+@tab
+@code{\flageolet}
+@lilypond[notime,relative=2]
+f^\flageolet e,_\flageolet b'\flageolet
+@end lilypond
+@tab
+@code{\open}
+@lilypond[notime,relative=2]
+f^\open e,_\open b'\open
+@end lilypond
+
+@item
+@code{\halfopen}
+@lilypond[notime,relative=2]
+f^\halfopen e,_\halfopen b'\halfopen
+@end lilypond
+@tab
+@code{\lheel}
+@lilypond[notime,relative=2]
+f^\lheel e,_\lheel b'\lheel
+@end lilypond
+@tab
+@code{\rheel}
+@lilypond[notime,relative=2]
+f^\rheel e,_\rheel b'\rheel
+@end lilypond
+@tab
+@code{\ltoe}
+@lilypond[notime,relative=2]
+f^\ltoe e,_\ltoe b'\ltoe
+@end lilypond
+
+@item
+@code{\rtoe}
+@lilypond[notime,relative=2]
+f^\rtoe e,_\rtoe b'\rtoe
+@end lilypond
+@tab
+@code{\snappizzicato}
+@lilypond[notime,relative=2]
+f^\snappizzicato e,_\snappizzicato b'\snappizzicato
+@end lilypond
+@tab
+@code{\stopped} or @code{-+}
+@lilypond[notime,relative=2]
+f^\stopped e,_\stopped b'\stopped
+@end lilypond
+@tab
+@code{\thumb}
+@lilypond[notime,relative=2]
+f^\thumb e,_\thumb b'\thumb
+@end lilypond
+
+@end multitable
+
+@funindex \segno
+@funindex \coda
+@funindex \varcoda
+@cindex @q{segno} sign
+@cindex sign, segno
+@cindex @q{coda} sign
+@cindex @q{coda} sign, variant
+@cindex sign, coda
+@cindex variant @q{coda} sign
+@cindex sign, variant coda
+@cindex sign, coda, variant
+@cindex coda sign, variant
+
+@node Repeat sign scripts
+@unnumberedsubsec Repeat sign scripts
+
+@multitable @columnfractions .22 .25 .25 .25
+
+@item
+@code{\segno}
+@lilypond[notime,relative=2]
+f^\segno e,_\segno b'\segno
+@end lilypond
+@tab
+@code{\coda}
+@lilypond[notime,relative=2]
+f^\coda e,_\coda b'\coda
+@end lilypond
+@tab
+@code{\varcoda}
+@lilypond[notime,relative=2]
+f^\varcoda e,_\varcoda b'\varcoda
+@end lilypond
+
+@end multitable
+
+@funindex \accentus
+@funindex \circulus
+@funindex \ictus
+@funindex \semicirculus
+@funindex \signumcongruentiae
+@cindex @q{accentus} Gregorian articulation
+@cindex Gregorian articulation, accentus
+@cindex articulation, Gregorian, accentus
+@cindex @q{circulus} Gregorian articulation
+@cindex Gregorian articulation, circulus
+@cindex articulation, Gregorian, circulus
+@cindex @q{ictus} Gregorian articulation
+@cindex Gregorian articulation, ictus
+@cindex articulation, Gregorian, ictus
+@cindex @q{semicirculus} Gregorian articulation
+@cindex Gregorian articulation, semicirculus
+@cindex articulation, Gregorian, semicirculus
+@cindex @q{signum congruentiae} mensural notation
+@cindex mensural notation, signum congruentiae
+
+@node Ancient scripts
+@unnumberedsubsec Ancient scripts
+
+@multitable @columnfractions .22 .25 .25 .25
+
+@item
+@code{\accentus}
+@lilypond[notime]
+\include "gregorian.ly"
+\new VaticanaStaff { e'^\accentus s4 f_\accentus s4 b\accentus}
+@end lilypond
+@tab
+@code{\circulus}
+@lilypond[notime]
+\include "gregorian.ly"
+\new VaticanaStaff { e'^\circulus s4 f_\circulus s4 b\circulus  }
+@end lilypond
+@tab
+@code{\ictus}
+@lilypond[notime]
+\include "gregorian.ly"
+\new VaticanaStaff { e'^\ictus s4 f_\ictus s4 b\ictus}
+@end lilypond
+
+@item
+@code{\semicirculus}
+@lilypond[notime]
+\include "gregorian.ly"
+\new VaticanaStaff {
+  e'^\semicirculus s4 f_\semicirculus s4 b\semicirculus
+}
+@end lilypond
+@tab
+@code{\signumcongruentiae}
+@lilypond[notime]
+\include "gregorian.ly"
+\new VaticanaStaff {
+  e'^\signumcongruentiae s4
+  f_\signumcongruentiae s4
+  b\signumcongruentiae
+}
+@end lilypond
+
+@end multitable
+
+
+@node List of breath marks
+@appendixsec List of breath marks
+
+@cindex breath mark symbol, list of
+
+@multitable @columnfractions .22 .25 .25 .25
+
+@item
+@code{'chantquarterbar}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'chantquarterbar
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'chanthalfbar}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'chanthalfbar
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'chantfullbar}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'chantfullbar
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'chantdoublebar}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'chantdoublebar
+b4 4 \breathe 4
+@end lilypond
+
+@item
+@code{'comma}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'comma
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'varcomma}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'varcomma
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'tickmark}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'tickmark
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'upbow}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'upbow
+b4 4 \breathe 4
+@end lilypond
+
+@item
+@code{'outsidecomma}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'outsidecomma
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'caesura}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'caesura
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'curvedcaesura}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'curvedcaesura
+b4 4 \breathe 4
+@end lilypond
+@tab
+@code{'spacer}
+@lilypond[notime,relative=2]
+\set breathMarkType = #'spacer
+b4 4 \breathe 4
+@end lilypond
+
+@end multitable
+
+
+@node Percussion notes
+@appendixsec Percussion notes
+@cindex drum, various
+@cindex acoustic bass
+@cindex bass
+@cindex snare
+@cindex electric snare
+@cindex acoustic snare
+@cindex tom tom
+@cindex bongo
+@cindex conga
+@cindex timbale
+@cindex sidestick
+@cindex floor tom tom
+@cindex low tom tom
+@cindex high tom tom
+@cindex mid tom tom
+@cindex high hat
+@cindex pedal high hat
+@cindex high hat, pedal
+@cindex open high hat
+@cindex high hat, open
+@cindex half open high hat
+@cindex high hat, half open
+@cindex cymbal, various
+@cindex crash cymbal
+@cindex ride cymbal
+@cindex chinese cymbal
+@cindex splash cymbal
+@cindex ride bell
+@cindex cowbell
+@cindex agogo
+@cindex high bongo
+@cindex low bongo
+@cindex mute bongo
+@cindex open bongo
+@cindex high conga
+@cindex low conga
+@cindex mute conga
+@cindex open conga
+@cindex high timbale
+@cindex low timbale
+@cindex mute timbale
+@cindex open timbale
+@cindex sidestick
+@cindex guiro
+@cindex cabasa
+@cindex maracas
+@cindex whistle
+@cindex handclap
+@cindex tambourine
+@cindex vibraslap
+@cindex tam tam
+@cindex claves
+@cindex woodblock
+@cindex cuica
+@cindex triangle
+
+@multitable @columnfractions .22 .25 .25 .25
+
+@item
+@code{bassdrum @* bd @*}
+@lilypond[notime,ragged-right]
+\drums { bd4 bd1 }
+@end lilypond
+@tab
+@code{acousticbassdrum @* bda @*}
+@lilypond[notime,ragged-right]
+\drums { bda4 bda1 }
+@end lilypond
+@tab
+@code{snare @* sn @*}
+@lilypond[notime,ragged-right]
+\drums { sn4 sn1 }
+@end lilypond
+@tab
+@code{acousticsnare @* sna @*}
+@lilypond[notime,ragged-right]
+\drums { sna4 sna1 }
+@end lilypond
+
+@item
+@code{electricsnare @* sne @*}
+@lilypond[notime,ragged-right]
+\drums { sne4 sne1 }
+@end lilypond
+@tab
+@code{lowfloortom @* tomfl @*}
+@lilypond[notime,ragged-right]
+\drums { tomfl4 tomfl1 }
+@end lilypond
+@tab
+@code{highfloortom @* tomfh @*}
+@lilypond[notime,ragged-right]
+\drums { tomfh4 tomfh1 }
+@end lilypond
+@tab
+@code{lowtom @* toml @*}
+@lilypond[notime,ragged-right]
+\drums { toml4 toml1 }
+@end lilypond
+
+@item
+@code{hightom @* tomh @*}
+@lilypond[notime,ragged-right]
+\drums { tomh4 tomh1 }
+@end lilypond
+@tab
+@code{lowmidtom @* tomml @*}
+@lilypond[notime,ragged-right]
+\drums { tomml4 tomml1 }
+@end lilypond
+@tab
+@code{himidtom @* tommh @*}
+@lilypond[notime,ragged-right]
+\drums { tommh4 tommh1 }
+@end lilypond
+@tab
+@code{hihat @* hh @*}
+@lilypond[notime,ragged-right]
+\drums { hh4 hh1 }
+@end lilypond
+
+@item
+@code{closedhihat @* hhc @*}
+@lilypond[notime,ragged-right]
+\drums { hhc4 hhc1 }
+@end lilypond
+@tab
+@code{openhihat @* hho @*}
+@lilypond[notime,ragged-right]
+\drums { hho4 hho1 }
+@end lilypond
+@tab
+@code{halfopenhihat @* hhho @*}
+@lilypond[notime,ragged-right]
+\drums { hhho4 hhho1 }
+@end lilypond
+@tab
+@code{pedalhihat @* hhp @*}
+@lilypond[notime,ragged-right]
+\drums { hhp4 hhp1 }
+@end lilypond
+
+
+@item
+@code{crashcymbal @* cymc @*}
+@lilypond[notime,ragged-right]
+\drums { cymc4 cymc1 }
+@end lilypond
+@tab
+@code{crashcymbala @* cymca @*}
+@lilypond[notime,ragged-right]
+\drums { cymca4 cymca1 }
+@end lilypond
+@tab
+@code{crashcymbalb @* cymcb @*}
+@lilypond[notime,ragged-right]
+\drums { cymcb4 cymcb1 }
+@end lilypond
+@tab
+@code{ridecymbal @* cymr @*}
+@lilypond[notime,ragged-right]
+\drums { cymr4 cymr1 }
+@end lilypond
+
+@item
+@code{ridecymbala @* cymra @*}
+@lilypond[notime,ragged-right]
+\drums { cymra4 cymra1 }
+@end lilypond
+@tab
+@code{ridecymbalb @* cymrb @*}
+@lilypond[notime,ragged-right]
+\drums { cymrb4 cymrb1 }
+@end lilypond
+@tab
+@code{chinesecymbal @* cymch @*}
+@lilypond[notime,ragged-right]
+\drums { cymch4 cymch1 }
+@end lilypond
+@tab
+@code{splashcymbal @* cyms @*}
+@lilypond[notime,ragged-right]
+\drums { cyms4 cyms1 }
+@end lilypond
+
+@item
+@code{ridebell @* rb @*}
+@lilypond[notime,ragged-right]
+\drums { rb4 rb1 }
+@end lilypond
+@tab
+@code{cowbell @* cb @*}
+@lilypond[notime,ragged-right]
+\drums { cb4 cb1 }
+@end lilypond
+@tab
+@code{hibongo @* boh @*}
+@lilypond[notime,ragged-right]
+\drums { boh4 boh1 }
+@end lilypond
+@tab
+@code{openhibongo @* boho @*}
+@lilypond[notime,ragged-right]
+\drums { boho4 boho1 }
+@end lilypond
+
+@item
+@code{mutehibongo @* bohm @*}
+@lilypond[notime,ragged-right]
+\drums { bohm4 bohm1 }
+@end lilypond
+@tab
+@code{lobongo @* bol @*}
+@lilypond[notime,ragged-right]
+\drums { bol4 bol1 }
+@end lilypond
+@tab
+@code{openlobongo @* bolo @*}
+@lilypond[notime,ragged-right]
+\drums { bolo4 bolo1 }
+@end lilypond
+@tab
+@code{mutelobongo @* bolm @*}
+@lilypond[notime,ragged-right]
+\drums { bolm4 bolm1 }
+@end lilypond
+
+
+@item
+@code{hiconga @* cgh @*}
+@lilypond[notime,ragged-right]
+\drums { cgh4 cgh1 }
+@end lilypond
+@tab
+@code{openhiconga @* cgho @*}
+@lilypond[notime,ragged-right]
+\drums { cgho4 cgho1 }
+@end lilypond
+@tab
+@code{mutehiconga @* cghm @*}
+@lilypond[notime,ragged-right]
+\drums { cghm4 cghm1 }
+@end lilypond
+@tab
+@code{loconga @* cgl @*}
+@lilypond[notime,ragged-right]
+\drums { cgl4 cgl1 }
+@end lilypond
+
+@item
+@code{openloconga @* cglo @*}
+@lilypond[notime,ragged-right]
+\drums { cglo4 cglo1 }
+@end lilypond
+@tab
+@code{muteloconga @* cglm @*}
+@lilypond[notime,ragged-right]
+\drums { cglm4 cglm1 }
+@end lilypond
+@tab
+@code{hitimbale @* timh @*}
+@lilypond[notime,ragged-right]
+\drums { timh4 timh1 }
+@end lilypond
+@tab
+@code{lotimbale @* timl @*}
+@lilypond[notime,ragged-right]
+\drums { timl4 timl1 }
+@end lilypond
+
+@item
+@code{hiagogo @* agh @*}
+@lilypond[notime,ragged-right]
+\drums { agh4 agh1 }
+@end lilypond
+@tab
+@code{loagogo @* agl @*}
+@lilypond[notime,ragged-right]
+\drums { agl4 agl1 }
+@end lilypond
+@tab
+@code{sidestick @* ss @*}
+@lilypond[notime,ragged-right]
+\drums { ss4 ss1 }
+@end lilypond
+@tab
+@code{hisidestick @* ssh @*}
+@lilypond[notime,ragged-right]
+\drums { ssh4 ssh1 }
+@end lilypond
+
+@item
+@code{losidestick @* ssl @*}
+@lilypond[notime,ragged-right]
+\drums { ssl4 ssl1 }
+@end lilypond
+@tab
+@code{guiro @* gui @*}
+@lilypond[notime,ragged-right]
+\drums { gui4 gui1 }
+@end lilypond
+@tab
+@code{shortguiro @* guis @*}
+@lilypond[notime,ragged-right]
+\drums { guis4 guis1 }
+@end lilypond
+@tab
+@code{longguiro @* guil @*}
+@lilypond[notime,ragged-right]
+\drums { guil4 guil1 }
+@end lilypond
+
+@item
+@code{cabasa @* cab @*}
+@lilypond[notime,ragged-right]
+\drums { cab4 cab1 }
+@end lilypond
+@tab
+@code{maracas @* mar @*}
+@lilypond[notime,ragged-right]
+\drums { mar4 mar1 }
+@end lilypond
+@tab
+@code{shortwhistle @* whs @*}
+@lilypond[notime,ragged-right]
+\drums { whs4 whs1 }
+@end lilypond
+@tab
+@code{longwhistle @* whl @*}
+@lilypond[notime,ragged-right]
+\drums { whl4 whl1 }
+@end lilypond
+
+@item
+@code{handclap @* hc @*}
+@lilypond[notime,ragged-right]
+\drums { hc4 hc1 }
+@end lilypond
+@tab
+@code{tambourine @* tamb @*}
+@lilypond[notime,ragged-right]
+\drums { tamb4 tamb1 }
+@end lilypond
+@tab
+@code{vibraslap @* vibs @*}
+@lilypond[notime,ragged-right]
+\drums { vibs4 vibs1 }
+@end lilypond
+@tab
+@code{tamtam @* tt @*}
+@lilypond[notime,ragged-right]
+\drums { tt4 tt1 }
+@end lilypond
+
+@item
+@code{claves @* cl @*}
+@lilypond[notime,ragged-right]
+\drums { cl4 cl1 }
+@end lilypond
+@tab
+@code{hiwoodblock @* wbh @*}
+@lilypond[notime,ragged-right]
+\drums { wbh4 wbh1 }
+@end lilypond
+@tab
+@code{lowoodblock @* wbl @*}
+@lilypond[notime,ragged-right]
+\drums { wbl4 wbl1 }
+@end lilypond
+@tab
+@code{opencuica @* cuio @*}
+@lilypond[notime,ragged-right]
+\drums { cuio4 cuio1 }
+@end lilypond
+
+@item
+@code{mutecuica @* cuim @*}
+@lilypond[notime,ragged-right]
+\drums { cuim4 cuim1 }
+@end lilypond
+@tab
+@code{triangle @* tri @*}
+@lilypond[notime,ragged-right]
+\drums { tri4 tri1 }
+@end lilypond
+@tab
+@code{opentriangle @* trio @*}
+@lilypond[notime,ragged-right]
+\drums { trio4 trio1 }
+@end lilypond
+@tab
+@code{mutetriangle @* trim @*}
+@lilypond[notime,ragged-right]
+\drums { trim4 trim1 }
+@end lilypond
+
+@end multitable
+
+
+@node List of bar lines
+@appendixsec List of bar lines
+
+Each system following shows the appearance of a particular bar
+type at the beginning, middle, and end of a line.
+
+For more information, @pxref{Bar lines} and @ref{Automatic bar
+lines}.
+
+@cindex bar line, list of
+
+@lilypondfile{en/included/bar-lines.ly}
+
+
+@node Default values for outside-staff-priority
+@appendixsec Default values for @code{outside-staff-priority}
+
+The following table shows the default @code{outside-staff-priority} of
+all outside-staff grobs.  Objects with smaller values are placed closer
+to the staff.
+
+@include en/outside-staff-priorities.tely
+
+
+@node Technical glossary
+@appendixsec Technical glossary
+
+A glossary of the technical terms and concepts used internally in
+LilyPond.  These terms may appear in the manuals, on mailing lists
+or in the source code.
+
+@menu
+* alist::
+* callback::
+* closure::
+* glyph::
+* grob::
+* immutable::
+* interface::
+* lexer::
+* mutable::
+* output-def::
+* parser::
+* parser variable::
+* prob::
+* smob::
+* spanner::
+* stencil::
+@end menu
+
+@node alist
+@unnumberedsubsec alist
+
+@cindex alist
+@cindex association list
+
+An association list or @strong{alist} for short is a Scheme pair
+which associates a value with a key: @w{@code{(key . value)}}.  For
+example, in @file{scm/lily.scm}, the alist
+@w{@qq{type-p-name-alist}} associates certain type predicates
+(e.g., @code{ly:music?}) with names (e.g., @qq{music}) so
+that type check failures can be reported with a console message that
+includes the name of the expected type predicate.
+
+@node callback
+@unnumberedsubsec callback
+
+@cindex callback
+
+A @strong{callback} is a routine, function or method whose reference is
+passed as an argument in a call to another routine, so allowing
+the called routine to invoke it.  The technique enables a lower-
+level software layer to call a function defined in a higher
+layer.  Callbacks are used extensively in LilyPond to permit
+user-level Scheme code to define how many low-level actions are
+performed.
+
+
+@node closure
+@unnumberedsubsec closure
+
+@cindex closure
+
+In Scheme, a @strong{closure} is created when a function, usually
+a lambda expression, is passed as a variable.  The closure contains
+the function's code plus references to the lexical bindings of the
+function's free variables (i.e., those variables used in the
+expression but defined outside it).  When this function is applied
+to different arguments later, the free variable bindings that were
+captured in the closure are used to obtain the values of the free
+variables to be used in the calculation.  One useful property of
+closures is the retention of internal variable values between
+invocations, so permitting state to be maintained.
+
+
+@node glyph
+@unnumberedsubsec glyph
+
+@cindex glyph
+@cindex font
+@cindex typeface
+
+A @strong{glyph} is a particular graphical representation of a typographic
+character, or a combination of two characters formating a ligature.
+A set of glyphs with a single style and shape comprise a font, and
+a set of fonts covering several styles and sizes comprise a typeface.
+
+@morerefs
+Notation Reference:
+@ref{Fonts},
+@ref{Special characters}.
+@endmorerefs
+
+
+@node grob
+@unnumberedsubsec grob
+
+@cindex grob
+@cindex layout object
+@cindex graphical object
+
+LilyPond objects which represent items of notation in the printed
+output such as note heads, stems, slurs, ties, fingering, clefs,
+etc are called @q{Layout objects}, often known as @q{GRaphical
+OBjects}, or @strong{grobs} for short.  They are represented by
+instances of the @code{Grob} class.
+
+@morerefs
+Learning Manual:
+@rlearning{Objects and interfaces},
+@rlearning{Properties of layout objects}.
+
+Notation Reference:
+@ref{Naming conventions}.
+
+Internals Reference:
+@rinternals{grob-interface},
+@rinternals{All layout objects}.
+@endmorerefs
+
+
+@node immutable
+@unnumberedsubsec immutable
+
+@cindex immutable object
+@cindex immutable property
+@cindex shared property
+
+An @strong{immutable} object is one whose state cannot be modified
+after creation, in contrast to a mutable object, which can be
+modified after creation.
+
+In LilyPond, immutable or shared properties define the default
+style and behavior of grobs.  They are shared between many objects.
+In apparent contradiction to the name, they can be changed using
+@code{\override} and @code{\revert}.
+
+@morerefs
+Notation Reference:
+@ref{mutable}.
+@endmorerefs
+
+
+@node interface
+@unnumberedsubsec interface
+
+@cindex interface
+@funindex grob-interface
+@cindex graphical object interface
+
+Actions and properties which are common to a number of grobs are
+grouped together in an object called a @code{grob-interface}, or
+just @q{interface} for short.
+
+@morerefs
+Learning Manual:
+@rlearning{Objects and interfaces},
+@rlearning{Properties found in interfaces}.
+
+Notation Reference:
+@ref{Naming conventions},
+@ref{Layout interfaces}.
+
+Internals Reference:
+@rinternals{Graphical Object Interfaces}.
+@endmorerefs
+
+
+@node lexer
+@unnumberedsubsec lexer
+
+@cindex lexer
+@cindex Flex
+
+A @strong{lexer} is a program that converts a sequence of
+characters into a sequence of tokens, a process called @dfn{lexical
+analysis}.  The LilyPond lexer converts the stream obtained from an
+input @file{.ly} file into a tokenized stream more suited to the
+next stage of processing -- parsing (@pxref{parser}).
+The LilyPond lexer is built with Flex from the lexer file
+@file{lily/lexer.ll}, which contains the lexical rules.  This file
+is part of the source code and is not included in the LilyPond
+binary installation.
+
+
+@node mutable
+@unnumberedsubsec mutable
+
+@cindex mutable object
+@cindex mutable property
+
+A @strong{mutable} object is one whose state can be modified after
+creation, in contrast to an immutable object, whose state is fixed
+at the time of creation.
+
+In LilyPond, mutable properties contain values that are specific to
+one grob.  Typically, lists of other objects or results from
+computations are stored in mutable properties.
+
+@morerefs
+Notation Reference:
+@ref{immutable}.
+@endmorerefs
+
+
+@node output-def
+@unnumberedsubsec output-def
+
+@funindex output-def
+
+An instance of the @code{Output-def} class contains the methods and
+data structures associated with an output block.  Instances are
+created for midi, layout and paper blocks.
+
+
+@node parser
+@unnumberedsubsec parser
+
+@cindex parser
+@cindex Bison
+@cindex LilyPond grammar
+@cindex grammar, for LilyPond
+@cindex BNF
+
+A @strong{parser} analyzes the sequence of tokens produced by a
+lexer to determine its grammatical structure, grouping the tokens
+progressively into larger groupings according to the rules of the
+grammar.  If the sequence of tokens is valid the end product is a
+tree of tokens whose root is the grammar's start symbol.  If this
+cannot be achieved the file is invalid and an appropriate error
+message is produced.  The syntactic groupings and the rules for
+constructing the groupings from their parts for the LilyPond syntax
+are defined in @file{lily/parser.yy} and shown in Backus Normal Form
+(BNF) in @rcontrib{LilyPond grammar}.  This file is used to build the
+parser during the program build by the parser generator, Bison.  It is
+part of the source code and is not included in the LilyPond binary
+installation.
+
+
+@node parser variable
+@unnumberedsubsec parser variable
+
+@cindex parser variable
+@cindex Scheme variable
+@cindex global variable
+@funindex afterGraceFraction
+@funindex musicQuotes
+@funindex mode
+@funindex output-count
+@funindex output-suffix
+@funindex partCombineListener
+@funindex pitchnames
+@funindex toplevel-bookparts
+@funindex toplevel-scores
+@funindex showLastLength
+@funindex showFirstLength
+
+These are variables defined directly in Scheme.  Their direct
+use by users is strongly discouraged, because their scoping
+semantics can be confusing.
+
+When the value of such a variable is changed in a @file{.ly} file,
+the change is global, and unless explicitly reverted, the new value
+will persist to the end of the file, affecting subsequent
+@code{\score} blocks as well as external files added with the
+@code{\include} command.  This can lead to unintended consequences
+and in complex typesetting projects the consequent errors can be
+difficult to track down.
+
+LilyPond uses the following parser variables:
+
+@itemize
+@item afterGraceFraction
+@item musicQuotes
+@item mode
+@item output-count
+@item output-suffix
+@item partCombineListener
+@item pitchnames
+@item toplevel-bookparts
+@item toplevel-scores
+@item showLastLength
+@item showFirstLength
+@end itemize
+
+
+@node prob
+@unnumberedsubsec prob
+
+@cindex prob
+@cindex property object
+
+PRoperty OBjects, or @strong{probs} for short, are instances of
+the @code{Prob} class, a simple base class for objects which have
+mutable and immutable property alists and the methods to manipulate
+them.  The @code{Music} and @code{Stream_event} classes derive from
+@code{Prob}.  Instances of the @code{Prob} class are also created
+to hold the formatted content of system grobs and titling blocks
+during page layout.
+
+
+@node smob
+@unnumberedsubsec smob
+
+@cindex smob
+@cindex Scheme object
+
+@strong{Smobs}, or ScheMe OBjects, are part of the mechanism used
+by Guile to export C and C++ objects to Scheme code.  In LilyPond,
+smobs are created from C++ objects through macros.  There are two
+types of smob objects: simple smobs, intended for simple immutable
+objects like numbers, and complex smobs, used for objects with
+identities.  If you have access to the LilyPond sources, more
+information can be found in @file{lily/includes/smob.hh}.
+
+
+@node spanner
+@unnumberedsubsec spanner
+
+@cindex spanner
+
+@strong{Spanners} are a class of grobs that are not horizontally
+fixed on one point of the score but extend from one point to
+another.  Examples include beams, ties, and slurs, as well as
+hairpins and staff lines.  Whereas non-spanners can only be broken
+into at most two visible pieces (for example, a clef duplicated at
+the end of the line and the beginning of the next line), spanners
+are broken into as many pieces as required by their start and end
+points (such as a long crescendo extending on three systems, or
+staff lines, which always span the whole score).
+
+Technically, spanners are defined as grobs having the
+@code{spanner-@/interface}; on the C++ side of LilyPond, they are
+instances of the @code{Spanner} subclass of @code{Grob}.  The
+left and right bounds of a spanner can be retrieved and set using
+@code{ly:spanner-@/bound} and @code{ly:spanner-@/set-@/bound!},
+respectively.  The bounds are always items.  The X@tie{}parent of
+a spanner has little musical sense, but is usually set to the left
+bound.
+
+@morerefs
+Notation Reference:
+@ref{Spanners}.
+
+Internals Reference:
+@rinternals{all-layout-objects},
+@rinternals{spanner-interface}.
+@endmorerefs
+
+
+@node stencil
+@unnumberedsubsec stencil
+
+@cindex stencil
+
+An instance of the @strong{stencil} class holds the information
+required to print a typographical object.  It is a simple smob
+containing a confining box, which defines the vertical and
+horizontal extents of the object, and a Scheme expression which
+will print the object when evaluated.  Stencils may be combined
+to form more complex stencils defined by a tree of Scheme
+expressions formed from the Scheme expressions of the component
+stencils.
+
+The @code{stencil} property, which connects a grob to its stencil,
+is defined in the @code{grob-interface} interface.
+
+@morerefs
+Internals Reference:
+@rinternals{grob-interface}.
+@endmorerefs
+
+
+@node Available music functions
+@appendixsec Available music functions
+
+@include en/identifiers.tely
+
+@node Context modification identifiers
+@appendixsec Context modification identifiers
+
+The following commands are defined for use as context modifications
+within a @code{\layout} or @code{\with} block.
+
+@include en/context-mod-identifiers.tely
+
+
+@node Naming conventions
+@appendixsec Naming conventions
+
+Naming conventions are used so that it is easier to keep the
+nature of an object in mind.
+
+@c Superset of the table in the Learning Manual. --JeanAS
+@raggedRight
+@multitable @columnfractions .33 .33 .33
+@headitem Object/property type
+  @tab Naming convention
+  @tab Examples
+@item Keywords
+  @tab @code{aaaa}
+  @tab @code{\score}, @code{\addlyrics}
+@item Music functions and shortcuts
+  @tab @code{aaaa} or @code{aaaaAaaaAaaa}
+  @tab @code{\time}, @code{\stemUp}
+@item Markup functions
+  @tab @code{aaaa} or @code{aaaa-aaaa-aaaa}
+  @tab @code{\bold}, @code{\with-dimensions}
+@item Paper variables
+  @tab @code{aaaa} or @code{aaaa-aaaa-aaaa}
+  @tab @code{indent}, @code{page-breaking}
+@item Music expressions
+  @tab @code{Aaaa} or @code{AaaaAaaaAaaa}
+  @tab @code{NoteEvent}, @code{SequentialMusic}
+@item Music classes
+  @tab @code{aaaa} or @code{aaaa-aaaa-aaaa}
+  @tab @code{note-event}, @code{rhythmic-event}
+@item Music properties
+  @tab @code{aaaa} or @code{aaaa-aaaa-aaaa}
+  @tab @code{force-accidental}, @code{iterator-ctor}
+@item Contexts
+  @tab @code{Aaaa} or @code{AaaaAaaaAaaa}
+  @tab @code{Staff}, @code{GrandStaff}
+@item Context properties
+  @tab @code{aaaa} or @code{aaaaAaaaAaaa}
+  @tab @code{stanza}, @code{instrumentName}
+@item Engravers
+  @tab @code{Aaaa_engraver} or @code{Aaaa_aaaa_aaaa_engraver}
+  @tab @code{Clef_engraver}, @code{Note_heads_engraver}
+@item Layout Objects
+  @tab @code{Aaaa} or @code{AaaaAaaaAaaa}
+  @tab @code{Slur}, @code{NoteHead}
+@item Layout Object Properties
+  @tab @code{aaa} or @code{aaa-aaa-aaa}
+  @tab @code{direction}, @code{beam-thickness}
+@item Interfaces
+  @tab @code{aaa-aaa-interface}
+  @tab @code{grob-interface}, @code{break-aligned-interface}
+@item Scheme functions defined in Guile
+  @tab @code{aaaa} or @code{aaaa-aaaa-aaaa}
+  @tab @code{map}, @code{for-each}
+@item Scheme functions defined in LilyPond
+  @tab @code{ly:aaaa} or @code{ly:aaaa-aaaa-aaaa} or
+  @code{aaaa} or @code{aaaa-aaaa-aaaa}
+  @footnote{For historical reasons, some but not all of the functions
+  defined by LilyPond start with the @code{ly:} prefix.}
+  @tab @code{ly:round-filled-box}, @code{music-map}
+@end multitable
+@endRaggedRight
+
+
+@node Predefined type predicates
+@appendixsec Predefined type predicates
+
+@include en/type-predicates.tely

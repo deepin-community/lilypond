@@ -1,0 +1,9 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Il est possible de définir de nouveaux styles de métrique. La métrique
+de la deuxième mesure devrait être sens dessus dessous sur les deux
+portées.
+"
+
+
+  doctitlefr = "Personnalisation de la métrique"

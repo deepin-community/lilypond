@@ -1,0 +1,10 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+Las instrucciones @code{\\startTextSpan} y @code{\\stopTextSpan}
+permiten la creación de elementos de extensión textuales tan
+fácilmente como indicaciones de pedal u
+octavaciones. Sobreescribimos ciertas propiedades del objeto
+@code{TextSpanner} para modificar su salida.
+
+"
+  doctitlees = "Crear elementos de extensión textuales"

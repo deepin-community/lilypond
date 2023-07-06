@@ -1,0 +1,184 @@
+# This file is part of LilyPond, the GNU music typesetter.
+#
+# Copyright (C) 2020--2022  Jonas Hahnfeld <hahnjo@hahnjo.de>
+#
+# LilyPond is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# LilyPond is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
+
+stages:
+  - build
+  - test
+  - documentation
+  - website
+
+default:
+  image: registry.gitlab.com/lilypond/lilypond/ci/ubuntu-18.04:20221027
+  interruptible: true
+
+# Conditionally include a file to add the tag 'lilypond' to all jobs so that
+# they are assigned to our custom runners, but we can leave the shared runners
+# enabled for external contributors forking the repository.
+include:
+  - local: .gitlab-ci.lilypond.yml
+    rules:
+      - if: $CI_PROJECT_PATH == "lilypond/lilypond"
+
+.if-default-branch: &if-default-branch
+  if: $CI_PROJECT_PATH == "lilypond/lilypond" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+.if-mr-to-default: &if-mr-to-default
+  if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == $CI_DEFAULT_BRANCH
+
+.if-stable-branch: &if-stable-branch
+  if: $CI_PROJECT_PATH == "lilypond/lilypond" && $CI_COMMIT_BRANCH =~ /stable\/.*/
+
+.if-schedule-or-web: &if-schedule-or-web
+  if: $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web"
+
+# Source files are checked out freshly for each job. This leads to the situation
+# that make considers the artifacts outdated and rebuilds LilyPond from scratch.
+# .touch-build contains the command needed to touch the downloaded build files,
+# grouped into a pre-collapsed custom section.
+.touch-build: &touch-build
+  - echo -e "section_start:`date +%s`:touch_build[collapsed=true]\r\e[0KTouch build artifacts"
+  - make -C python --touch all
+  - make -C scripts --touch all
+  - make -C flower --touch all
+  - make -C lily --touch all
+  - make -C mf --touch all
+  - echo -e "section_end:`date +%s`:touch_build\r\e[0K"
+
+variables:
+  CONFIGURE_FLAGS: "--ci"
+  # Always clone and build in the same directory to avoid problems with
+  # 'make test-baseline' and 'make check'.
+  GIT_CLONE_PATH: "/builds/lilypond/lilypond"
+
+# An additional variable not set here but used below is $MAKE_FLAGS. This can
+# be set per runner and allows to enable parallel builds. For example, set its
+# value to "-j4 CPU_COUNT=4" in order to speed up the build.
+
+build:
+  stage: build
+  rules:
+    - <<: *if-default-branch
+    - <<: *if-mr-to-default
+    - <<: *if-stable-branch
+    - <<: *if-schedule-or-web
+  script:
+    - mkdir build && cd build
+    - ../autogen.sh $CONFIGURE_FLAGS
+    - make $MAKE_FLAGS
+  artifacts:
+    untracked: true
+    exclude:
+      - "build/Documentation/out/**"
+      - "build/out/lybook-db/**"
+    expire_in: 1 week
+
+test:
+  stage: test
+  rules:
+    - <<: *if-default-branch
+      when: never
+    - <<: *if-stable-branch
+    - <<: *if-schedule-or-web
+  dependencies: [ "build" ]
+  script:
+    - cd build
+    - *touch-build
+    - make $MAKE_FLAGS test
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - "**/*.fail.log"
+
+test-baseline:
+  stage: test
+  rules:
+    - <<: *if-default-branch
+  dependencies: [ "build" ]
+  script:
+    # Needed to work around the fact that gitlab-runner changes the mode of link
+    # targets until a proper fix is merged and released:
+    # https://gitlab.com/gitlab-org/gitlab-runner/-/merge_requests/3547
+    - git reset --hard
+    - cd build
+    - *touch-build
+    - make $MAKE_FLAGS test-baseline
+    - tar czf ../test-baseline.tar.gz input/regression/out-test-baseline input/regression/*/out-test-baseline out-baseline
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - "test-baseline.tar.gz"
+      - "**/*.fail.log"
+
+check:
+  stage: test
+  rules:
+    - <<: *if-mr-to-default
+  dependencies: [ "build" ]
+  script:
+    - cd build
+    - *touch-build
+    - ../scripts/auxiliar/download-test-baseline.sh
+    - make $MAKE_FLAGS check
+    - mv out/test-results/ ..
+    - echo "Results can be viewed at $CI_JOB_URL/artifacts/file/test-results/index.html"
+  artifacts:
+    name: "test-results"
+    when: always
+    expire_in: 1 week
+    paths:
+      - "test-results/**"
+      - "**/*.fail.log"
+
+doc:
+  stage: documentation
+  rules:
+    - <<: *if-default-branch
+      when: never
+    - <<: *if-mr-to-default
+    - <<: *if-stable-branch
+    - <<: *if-schedule-or-web
+  dependencies: [ "build" ]
+  script:
+    - cd build
+    - *touch-build
+    - make $MAKE_FLAGS doc
+  artifacts:
+    name: "logs"
+    when: on_failure
+    expire_in: 1 week
+    paths:
+      - "**/*.fail.log"
+
+website:
+  stage: website
+  rules:
+    - <<: *if-default-branch
+      when: manual
+      allow_failure: true
+  dependencies: [ "build" ]
+  script:
+    - cd build
+    - *touch-build
+    - make $MAKE_FLAGS website
+  artifacts:
+    name: "website"
+    when: always
+    expire_in: 1 week
+    paths:
+      - "build/out/website-root/**"

@@ -1,0 +1,19 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Les réglages par défaut des notes d'ornement sont stockés dans les
+variables suivantes :
+
+@verbatim
+startGraceMusic
+stopGraceMusic
+startAcciaccaturaMusic
+stopAcciaccaturaMusic
+startAppoggiaturaMusic
+stopAppoggiaturaMusic
+@end verbatim
+
+Ces variables sont définies dans le fichier @file{ly/grace-init.ly}.
+Amender leur définition permet d'en varier les effets.
+"
+
+  doctitlefr = "Redéfinition des réglages de mise en forme par défaut des notes d'ornement"

@@ -1,0 +1,9 @@
+%% Translation of GIT committish: 069c8e54d8eaf449262a180674330b31c8c723d9
+  texidoces = "
+De forma predeterminada se imprimen todos los acordes que aparecen en
+el código de entrada; se puede modificar este comportamiento de tal
+manera que los acordes se impriman exclusivamente al comienzo de las
+líneas y cuando cambia el acorde.
+
+"
+  doctitlees = "Imprimir los acordes cuando se produce un cambio"

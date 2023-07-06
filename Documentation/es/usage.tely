@@ -1,0 +1,83 @@
+\input texinfo @c -*- coding: utf-8; mode: texinfo; documentlanguage: es -*-
+@ignore
+    Translation of GIT committish: 15de2c8874262c2c0a9f2cc3beee5070c766dde4
+
+    When revising a translation, copy the HEAD committish of the
+    version that you are working on.  For details, see the Contributors'
+    Guide, node Updating translation committishes..
+@end ignore
+
+@setfilename lilypond-usage.info
+@settitle LilyPond: manual de utilización del programa
+@documentencoding UTF-8
+@documentlanguage es
+@afourpaper
+
+@c Translators: Francisco Vila
+
+@macro manualIntro
+Este archivo explica cómo ejecutar los programas que se distribuyen
+con LilyPond versión @version{}.  Además sugiere ciertas @qq{buenas
+prácticas} para una utilización eficiente.
+@end macro
+
+@c `Usage' was born 1999-10-11 with this commit:
+@c release: 1.2.13
+@c author: Han-Wen Nienhuys
+@c commit: 0cf97b5cdceecbba937f43ac827f4065aad5001e
+@c   file: Documentation/user/invoking.itexi
+
+@macro copyrightDeclare
+Copyright @copyright{} 1999--2022 por los autores.
+@end macro
+
+@set FDL
+@include es/macros.itexi
+
+
+@lilyTitlePage{Utilización}
+
+
+@c TOC -- non-tex
+@ifnottex
+
+@c  maybe add a "Tasks" or "Specific tasks" or something like
+@c  that, after Suggestions  -gp
+@menu
+* Ejecutar LilyPond::              Manejo.
+* Actualizar ficheros con convert-ly:: Actualizar los archivos de entrada.
+* lilypond-book::                  Integrar texto y música.
+* Programas externos::             Mezclar LilyPond con otros programas.
+* Sugerencias para escribir archivos de entrada::  Buenas prácticas y depuración de errores eficiente.
+
+Apéndices
+
+* GNU Free Documentation License:: Licencia de este documento.
+* Índice de LilyPond::
+@end menu
+
+@docMain
+@end ifnottex
+
+
+@contents
+
+@iftex
+@allowcodebreaks false
+@end iftex
+
+@include es/usage/running.itely
+@include es/usage/updating.itely
+@include es/usage/lilypond-book.itely
+@include es/usage/external.itely
+@include es/usage/suggestions.itely
+
+@include en/fdl.itexi
+
+@node Índice de LilyPond
+@appendix Índice de LilyPond
+@translationof LilyPond index
+
+@printindex cp
+
+@bye

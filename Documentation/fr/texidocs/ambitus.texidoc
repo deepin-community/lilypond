@@ -1,0 +1,11 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Un @emph{ambitus} indique la tessiture, autrement dit les hauteurs
+extrêmes d'une voix.
+
+Seules seront affichées les altérations non comprises dans l'armure.
+Les objets @code{AmbitusNoteHead} peuvent avoir des lignes
+supplémentaires.
+"
+
+  doctitlefr = "Ambitus"

@@ -1,0 +1,8 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Il est possible de distribuer un arpège sur plusieurs portées d'un
+système autre que le @code{PianoStaff} dès lors que vous incluez le
+@code{Span_arpeggio_engraver} au contexte @code{Score}.
+"
+
+  doctitlefr = "Arpège distribué pour un autre contexte que le piano"

@@ -1,0 +1,12 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+A menudo, el bajo figurado usa líneas de extensión para indicar la
+continuación del elemento correspondiente dentro del acorde.  Sin
+embargo, en este caso lilypond está en el @qq{modo voraz} y usa los
+extensores cuando es posible.  Para dividir los extensores
+individuales, podemos sencillamente usar el modificador \\! para un
+número, lo que quiebra cualquier línea de extensión atribuida a dicho
+número justo antes del número.
+
+"
+  doctitlees = "Dividir manualmente las líneas de extensión del bajo cifrado para ciertos números solamente"

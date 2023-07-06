@@ -1,0 +1,9 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+Cuando se puede una nota en la voz superior para evitar la colisión
+con una nota de otra voz, el comportamiento predeterminado es
+desplazar la nota superior a la derecha.  Se puede cambiar usando la
+propiedad @code{prefer-dotted-right} de @code{NoteCollision}.
+
+"
+  doctitlees = "Desplazar las notas con puntillo en polifonía"

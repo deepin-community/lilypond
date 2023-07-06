@@ -1,0 +1,10 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Dans cet extrait sont définies les commandes @code{\\splitStaffBarLine},
+@code{convUpStaffBarLine} et @code{convDownStaffBarLine}.  Ces commandes
+ajoutent une double flèche après la dernière barre de mesure d'une portée,
+indiquant par là que ses différentes voix disposeront de leur propre
+portée à la ligne suivante.
+"
+
+  doctitlefr = "Ajout d'indicateurs à une portée dédoublée après un saut de ligne"

@@ -1,0 +1,10 @@
+%% Translation of GIT committish: ff9ca62acddb818b7788d7818a5c7eb0ddb6cdcb
+  texidoces = "
+Generalmente, las opciones disponibles para la digitación de los
+acordes funciona bien de forma predeterminada, pero si una de las
+indicaciones precisa colocarse de forma más exacta puede usarse el
+truco siguiente.  Esto es especialmente útil para corregir el
+posicionado cuando están presentes intervalos de segunda.
+
+"
+  doctitlees = "Posicionamiento preciso de indicaciones de digitación"

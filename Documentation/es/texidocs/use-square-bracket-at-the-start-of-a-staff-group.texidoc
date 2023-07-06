@@ -1,0 +1,8 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+Se puede usar el delimitador de comienzo de un sistema
+@code{SystemStartSquare} estableciéndolo explícitamente dentro de
+un contexto @code{StaffGroup} o @code{ChoirStaffGroup}.
+
+"
+  doctitlees = "Uso del corchete recto al comienzo de un grupo de pentagramas"

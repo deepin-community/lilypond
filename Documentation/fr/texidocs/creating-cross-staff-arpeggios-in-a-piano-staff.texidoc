@@ -1,0 +1,8 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Dans une double portée pour piano (@code{PianoStaff}), un arpège peut
+s'étendre sur les deux portées grâce à la propriété
+@code{PianoStaff.connectArpeggios}.
+"
+
+  doctitlefr = "Arpège distribué sur une partition pour piano"

@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use IO::File;
+use File::Find;
+
+# <a href="https://validator.w3.org/check?uri=referer">
+# <img src="https://www.w3.org/Icons/valid-html401"
+#      alt="Valid HTML 4.01 Transitional"
+#      height="31" width="88"></a>
+
+find(\&fix_if_file,@ARGV);
+
+sub fix_if_file {
+    return unless -f $_;
+    my $fh = IO::File->new($_,'r') or
+        die "Unable to open $_ for reading: $!";
+    local $/;
+    my $fc = <$fh>;
+    close($fh);
+    # strip out the w3c img callback; replace with alt text
+    my $changed = $fc =~ s{<img\s+src="https?://www.w3c?.org/Icons/[^"]+"[^>]*?alt="([^"]+)"[^>]*>}{$1}imsg;
+    # if it doesn't have alt text, just replace it with Valid HTML
+    $changed += $fc =~ s{<img\s+src="https?://www.w3c?.org/Icons/[^"]+"[^>]*>}{Valid HTML}imsg;
+
+    if ($changed) {
+        $fh = IO::File->new($_,'w') or
+            die "Unable to open $_ for writing: $!";
+        print {$fh} $fc;
+        close($fh);
+        print STDERR "$File::Find::name was changed\n";
+    }
+}

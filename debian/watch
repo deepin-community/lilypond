@@ -1,0 +1,6 @@
+# For the stable releases of LilyPond, ignore all odd minor version numbers,
+# because they are developmental versions.
+# https://lilypond.org/download/sources/v(\d+\.\d+)/ \
+version=4
+https://lilypond.org/download/sources/v(\d+\.\d*[02468])/ \
+  lilypond-([\d\.]+)\.tar\.gz

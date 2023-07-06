@@ -1,0 +1,3 @@
+lilypond: binary-from-other-architecture [usr/lib/*/lilypond/*/ccache/lily/*.go]
+lilypond: unstripped-binary-or-object [usr/lib/*/lilypond/*/ccache/lily/*.go]
+lilypond: shared-library-lacks-prerequisites [usr/lib/*/lilypond/*/ccache/lily/*.go]

@@ -1,0 +1,11 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+@code{shiftDurations} permet de modifier la longueur des notes d'un
+morceau.
+
+Cette instruction prend deux arguments : un coefficient d'échelonnement
+(une puissance de deux) et un nombre de points d'augmentation (entier
+positif).
+"
+
+  doctitlefr = "Changement automatique des durées"

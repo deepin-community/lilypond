@@ -1,0 +1,11 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  doctitlees = "Uso de ligaduras en los arpegios"
+  texidoces = "
+En ocasiones se usan ligaduras de unión para escribir los arpegios.
+En este caso, las dos notas ligadas no tienen que ser consecutivas.
+Esto se puede conseguir estableciendo la propiedad
+@code{tieWaitForNote} al valor @code{#t}.  La misma funcionalidad
+es de utilidad, por ejemplo, para ligar un trémolo a un acorde, pero
+en principio también se puede usar para notas normales consecutivas.
+
+"

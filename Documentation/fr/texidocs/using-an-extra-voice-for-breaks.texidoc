@@ -1,0 +1,14 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Il est souvent plus pratique de séparer ce qui est purement musical et
+les informations concernant les sauts de ligne ou de page, en créant une
+voix supplémentaire dédiée. Cette voix spécifique ne contiendra que des
+blancs -- des silences invisibles @code{\\skip} --, des @code{\\break},
+des @code{\\pageBreak} et autres informations concernant les ruptures.
+
+Cette manière de procéder est tout à fait indiquée lorsque vous ajustez
+les @code{line-break-system-details} et autres propriétés fort
+intéressantes de @code{NonMusicalPaperColumnGrob}.
+"
+
+  doctitlefr = "Recours à une voix supplémentaire pour gérer les sauts"

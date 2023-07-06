@@ -1,0 +1,8 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  doctitlees = "Forzar el desplazamiento horizontal de las notas"
+  texidoces = "
+ Cuando el motor de tipografiado no es capaz de todo, se puede usar la
+ sintaxis siguiente para sobreescribir las decisiones de tipografía.
+ Las unidades de medida que se usan aquí son espacios de pentagrama.
+
+"

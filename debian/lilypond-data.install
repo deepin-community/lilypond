@@ -1,0 +1,6 @@
+usr/share/lilypond/*/ly
+usr/share/lilypond/*/ps
+usr/share/lilypond/*/python
+usr/share/lilypond/*/scm
+usr/share/lilypond/*/vim
+usr/share/emacs/site-lisp

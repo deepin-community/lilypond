@@ -1,0 +1,10 @@
+Document: lilypond.ca
+Title: GNU LilyPond, the music typesetter
+Author: Various
+Abstract: This documentation describes LilyPond (the GNU Project music
+ typesetter), the LilyPond music input language, and the Mutopia project,
+ a.k.a. "Music To the People."
+Section: Typesetting
+
+Format: PDF
+Files: /usr/share/doc/lilypond/html/Documentation/*.ca.pdf*

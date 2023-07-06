@@ -1,0 +1,20 @@
+#!/bin/sh
+# Run the LilyPond test suite with /usr/bin/lilypond from Debian package.
+# See "Building documentation without compiling" in INSTALL.txt on how it works.
+set -e
+
+# autogen.sh (configure) is expected to fail due to incomplete dependencies
+./autogen.sh || true
+
+# In case autogen.sh (configure) does successfully generates GNUmakefile
+# that is read-only, remove it so the next step does not fail
+rm -f GNUmakefile
+
+# Remove call to print-gittxt.sh so it does not fail if .git/ directory exists,
+# and skip the test-pre target.
+grep -v 'print-gittxt\.sh' GNUmakefile.in \
+    | sed -E 's/^test: test-pre($|\s.*)/test:/' \
+    > GNUmakefile
+
+# Run the actual tests
+make LILYPOND_EXTERNAL_BINARY=/usr/bin/lilypond test

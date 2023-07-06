@@ -1,0 +1,10 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Lorsqu'est activée la propriété @code{strict-grace-spacing},
+l'espacement des notes d'ornement se fera de manière « élastique ».
+Autrement dit, elles seront décollées de leur note de rattachement :
+LilyPond commence par espacer les notes normales, puis les ornements
+sont placés à la gauche de leur note de rattachement.
+"
+
+  doctitlefr = "Positionnement des notes d'ornement avec espace flottant"

@@ -1,0 +1,10 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+De forma predeterminada, las indicaciones metronómicas y las
+letras de ensayo se imprimen encima del pentagrama.  Para
+colocarlas debajo del pentagrama, simplemente ajustamos
+adecuadamente la propiedad @code{direction} de
+@code{MetronomeMark} o de @code{RehearsalMark}.
+
+"
+  doctitlees = "Impresión de indicaciones metronómicas y letras de ensayo debajo del pentagrama"

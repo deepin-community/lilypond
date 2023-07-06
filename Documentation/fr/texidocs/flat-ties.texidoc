@@ -1,0 +1,13 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+La fonction ici présentée prend en argument le @code{Tie.stencil} par
+défaut et en recalcule le résultat d'après les étendues de cette valeur
+par défaut.
+
+Des ajustements plus poussés sont possibles, en apportant des
+dérogations à @code{Tie.details.height-limit} ou à l'aide de la fonction
+@code{\\shape}. La définition personnalisée peut aussi se modifier à la
+volée.
+"
+
+  doctitlefr = "Liaison de prolongation aplatie"

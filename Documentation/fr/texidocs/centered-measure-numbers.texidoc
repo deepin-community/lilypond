@@ -1,0 +1,13 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Les partitions pour grands ensembles disposent souvent de la
+numérotation des mesures centrée en dessous du système. L'extrait
+ci-dessous indique comment le @code{Measure_counter_engraver} permet de
+répondre à cette pratique. Le graveur est ici ajouté à un contexte
+@code{Dynamics}.
+
+Il s'agit ici de code historique. Dès LilyPond 2.23.3, un simple
+@code{\\set Score.centerBarNumbers = ##t} suffit.
+"
+
+  doctitlefr = "Numéros de mesure centrés"

@@ -1,0 +1,10 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Le moteur d'espacement vertical des paroles a évolué avec la version
+2.14.  Celles-ci peuvent donc se retrouver positionnées différemment.
+
+Le moteur adoptera les usages de la version 2.12 une fois que vous aurez
+réglé certaines propriétés des contextes @code{Lyric} et @code{Staff}.
+"
+
+  doctitlefr = "Espacement des paroles selon les pratiques de la version 2.12"

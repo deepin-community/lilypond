@@ -1,0 +1,8 @@
+%% Translation of GIT committish: c4c1512a79d84d8d1acffa663c588b617a4dead8
+  texidoces = "
+Se pueden cambiar las fuentes tipográficas de forma independiente para
+cada estrofa, incuida la fuente que se usa para imprimir el número de
+estrofa.
+
+"
+  doctitlees = "Modificar la tipografía para cada estrofa"

@@ -1,0 +1,50 @@
+@c -*- coding: utf-8; mode: texinfo; documentlanguage: fr -*-
+
+@ignore
+    Translation of GIT committish: fbc2894a5734230cec0fb96f519c472737e185f4
+
+    When revising a translation, copy the HEAD committish of the
+    version that you are working on.  For details, see the Contributors'
+    Guide, node Updating translation committishes..
+@end ignore
+
+@c \version "2.16.0"
+
+@c Translators: Jean-Charles Malahieude
+@c Translation checkers:
+
+@node Notation spécialisée
+@chapter Notation spécialisée
+@translationof Specialist notation
+
+Ce chapitre explique comment créer la notation musicale spécifique à
+certains intruments ou certaines époques.
+
+Bien que la musique orchestrale ou d'ensemble de fasse pas l'objet
+d'une partie distincte, un certain nombre de notions couramment
+utilisées dans ces types de partitions est abordé dans
+@ref{Références en matière d'opéra et musique de scène}.
+
+@menu
+* Musique vocale::
+* Instruments utilisant des portées multiples::
+* Cordes non frettées::
+* Instruments à cordes frettées::
+* Percussions::
+* Instruments à vent::
+* Notation des accords::
+* Musique contemporaine::
+* Notations anciennes::
+* Musiques du monde::
+@end menu
+
+@include fr/notation/vocal.itely
+@include fr/notation/keyboards.itely
+@include fr/notation/unfretted-strings.itely
+@include fr/notation/fretted-strings.itely
+@include fr/notation/percussion.itely
+@include fr/notation/wind.itely
+@include fr/notation/chords.itely
+@include fr/notation/contemporary.itely
+@include fr/notation/ancient.itely
+@include fr/notation/world.itely

@@ -1,0 +1,7 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+Se puede hacer que los diagramas de posiciones se muestren sólo
+cuando el acorde cambia o al comienzo de una nueva línea.
+
+"
+  doctitlees = "Cambios de acorde de posiciones de trastes"

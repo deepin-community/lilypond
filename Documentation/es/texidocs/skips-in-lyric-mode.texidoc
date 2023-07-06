@@ -1,0 +1,9 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+La sintaxis @code{s} para los silencios de desplazamiento solamente
+está disponible en los modos de nota y de acorde.  En otras
+situaciones, por ejemplo al escribir la letra de las canciones, se
+recomienda usar la instrucción @code{\\skip}.
+
+"
+  doctitlees = "Silencios de separación en modo de letra"

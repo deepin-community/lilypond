@@ -1,0 +1,7 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Il est possible de créer votre propre modèle de chiffrages en réglant la
+propriété @code{chordNameExceptions}.
+"
+
+  doctitlefr = "Modèles de chiffrage d'accords"

@@ -1,0 +1,5 @@
+# /usr/share/info/lilypond is a symlink
+lilypond-doc: info-document-not-compressed usr/share/info/lilypond
+
+# Lintian does not follow through symlink when checking for image files
+lilypond-doc: info-document-missing-image-file

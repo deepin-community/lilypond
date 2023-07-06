@@ -1,22 +1,1140 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: template-repository
-Source: https://github.com/deepin-community/template-repository
+Source: https://lilypond.org/
+Upstream-Name: lilypond
+Upstream-Contact: lilypond-devel@gnu.org
 
 Files: *
-Copyright: 2023 Tsic404 <liuheng@deepin.org>
+Copyright: © 1993–2022 Han-Wen Nienhuys <hanwen@lilypond.org>
+           © 1996–2022 Jan Nieuwenhuizen <janneke@gnu.org>
+License: GPL-3+
+
+Files: debian/*
+Copyright: © 2009–2017 Don Armstrong <don@debian.org>
+           © 2005–2008 Thomas Bushnell, BSG <tb@debian.org>
+           © 2016–2018 Dr. Tobias Quathamer <toddy@debian.org>
+           © 1997–2004, 2017, 2020–2023 Anthony Fok <foka@debian.org>
 License: GPL-2+
- This package is free software; you can redistribute it and/or modify
+
+Files: Documentation/*
+Copyright: Han-Wen Nienhuys, Jan Nieuwenhuizen and Graham Percival
+License: GFDL-1.3+
+
+Files: mf/*
+Copyright: © 1996–2017 The LilyPond authors (lilypond.org)
+License: OFL-1.1
+Comment: with Reserved Font Name "Emmentaler" and "Feta".
+
+Files: elisp/lilypond-font-lock.el
+Copyright: © 2001–2006 Heikki Junes
+           © 1997 Han-Wen Nienhuys
+           © 1995–1996 Barry A. Warsaw
+           © 1992–1994 Tim Peters
+License: GPL-3+
+
+Files: elisp/lilypond-mode.el
+ lily/include/lyric-extender.hh
+Copyright: © 1998–2015 Jan Nieuwenhuizen <janneke@gnu.org>
+           © 1999–2015 Jan Nieuwenhuizen <janneke@gnu.org>
+License: GPL-3+
+
+Files: elisp/lilypond-song.el
+ ly/festival.ly
+ scm/song.scm
+ scm/song-util.scm
+ scripts/lilymidi.py
+ scripts/lilysong.py
+Copyright: © 2006 Brailcom, o.p.s
+           © 2006, 2007 Brailcom, o.p.s
+           © 2006–2015 Brailcom, o.p.s
+           Author: Milan Zamazal <pdm@brailcom.org>
+License: GPL-3+
+
+Files: flower/getopt-long.cc
+Copyright: © 1996–2015 Han-Wen Nienhuys <hanwen@xs4all.nl>
+License: GPL-3+
+
+Files: flower/include/matrix.hh
+ flower/test-interval-set.cc
+ lily/constrained-breaking.cc
+ lily/include/constrained-breaking.hh
+ lily/include/one-line-auto-height-breaking.hh
+ lily/include/one-line-page-breaking.hh
+ lily/include/optimal-page-breaking.hh
+ lily/include/page-breaking.hh
+ lily/include/page-layout-problem.hh
+ lily/include/page-spacing.hh
+ lily/include/page-turn-page-breaking.hh
+ lily/include/skyline.hh
+ lily/include/staff-grouper-interface.hh
+ lily/keep-alive-together-engraver.cc
+ lily/one-line-auto-height-breaking.cc
+ lily/one-line-page-breaking.cc
+ lily/optimal-page-breaking.cc
+ lily/page-breaking.cc
+ lily/page-breaking-scheme.cc
+ lily/page-layout-problem.cc
+ lily/page-layout-problem-scheme.cc
+ lily/page-spacing.cc
+ lily/page-turn-engraver.cc
+ lily/page-turn-page-breaking.cc
+ lily/skyline.cc
+ lily/spacing-interface.cc
+ lily/spring.cc
+ lily/staff-grouper-interface.cc
+ scm/graphviz.scm
+Copyright: © 2006–2022 Joe Neeman <joeneeman@gmail.com>
+           © 2007–2022 Joe Neeman <joeneeman@gmail.com>
+           © 2009–2022 Joe Neeman <joeneeman@gmail.com>
+           © 2010–2022 Joe Neeman <joeneeman@gmail.com>
+           © 2011–2022 Joe Neeman <joeneeman@gmail.com>
+           © 2012 Joe Neeman <joeneeman@gmail.com>
+License: GPL-3+
+
+Files: flower/include/yaffut.hh
+Copyright: © 2006 Rutger E.W. van Beusekom
+License: BSL-1.0
+
+Files: input/regression/musicxml/*
+Copyright: © 2008-2010 Reinhold Kainhofer
+License: Expat
+
+Files: lily/accidental-engraver.cc
+Copyright: © 1997–2015 Han-Wen Nienhuys <hanwen@xs4all.nl>
+ Modified 2001–2002 by Rune Zedeler <rz@daimi.au.dk>
+License: GPL-3+
+
+Files: lily/ambitus-engraver.cc
+ lily/cluster.cc
+ lily/cluster-engraver.cc
+ lily/coherent-ligature-engraver.cc
+ lily/custos.cc
+ lily/custos-engraver.cc
+ lily/gregorian-ligature-engraver.cc
+ lily/include/cluster.hh
+ lily/include/coherent-ligature-engraver.hh
+ lily/include/custos.hh
+ lily/include/gregorian-ligature.hh
+ lily/include/gregorian-ligature-engraver.hh
+ lily/include/ligature-engraver.hh
+ lily/include/mensural-ligature.hh
+ lily/include/vaticana-ligature.hh
+ lily/ligature-bracket-engraver.cc
+ lily/ligature-engraver.cc
+ lily/mensural-ligature.cc
+ lily/mensural-ligature-engraver.cc
+ lily/vaticana-ligature.cc
+ lily/vaticana-ligature-engraver.cc
+ mf/parmesan-clefs.mf
+ mf/parmesan-dots.mf
+ mf/parmesan-flags.mf
+ mf/parmesan-macros.mf
+ mf/parmesan-noteheads.mf
+ mf/parmesan-timesignatures.mf
+Copyright: © 2000–2015 Juergen Reuter <reuter@ipd.uka.de>
+           © 2001–2015 Juergen Reuter <reuter@ipd.uka.de>
+           © 2002–2015 Juergen Reuter <reuter@ipd.uka.de>
+           © 2003–2015 Juergen Reuter <reuter@ipd.uka.de>
+           © 2006–2015 Juergen Reuter <reuter@ipd.uka.de>
+License: GPL-3+
+
+Files: lily/articulations.cc
+ lily/include/articulations.hh
+ lily/tab-tie-follow-engraver.cc
+ ly/predefined-fretboards-init.ly
+ ly/predefined-guitar-fretboards.ly
+ ly/string-tunings-init.ly
+ scm/fret-diagrams.scm
+ scm/predefined-fretboards.scm
+ scm/time-signature-settings.scm
+Copyright: © 2004–2022 Carl D. Sorensen <c_sorensen@byu.edu>
+           © 2005 Carl D. Sorensen <c_sorensen@byu.edu>
+           © 2008–2022 Carl D. Sorensen <c_sorensen@byu.edu>
+           © 2010–2022 Carl D. Sorensen <c_sorensen@byu.edu>
+           © 2010–2022 Carl Sorensen <c_sorensen@byu.edu>
+License: GPL-3+
+
+Files: lily/beam-collision-engraver.cc
+ lily/concurrent-hairpin-engraver.cc
+ lily/fingering-column.cc
+ lily/footnote-engraver.cc
+ lily/include/interval-minefield.hh
+ lily/include/pure-from-neighbor-interface.hh
+ lily/include/rhythmic-music-iterator.hh
+ lily/interval-minefield.cc
+ lily/pure-from-neighbor-engraver.cc
+ lily/pure-from-neighbor-interface.cc
+ lily/rhythmic-music-iterator.cc
+ lily/span-bar-stub-engraver.cc
+ lily/unpure-pure-container.cc
+ scm/display-woodwind-diagrams.scm
+ scm/skyline.scm
+Copyright: © 2010–2022 Mike Solomon <mikesol@stanfordalumni.org>
+           © 2011–2022 Mike Solomon <mike@mikesolomon.org>
+           © 2012 Mike Solomon <mike@mikesolomon.org>
+           © 2013–2022 Mike Solomon Mike Solomon <mike@mikesolomon.org>
+License: GPL-3+
+Comment: In scm/define-woodwind-diagrams.scm,
+ Clarinet drawings copied from diagrams created by
+ Gilles Thibault <gilles.thibault@free.fr>
+
+Files: lily/breathing-sign.cc
+Copyright: © 1999–2022 Michael Krause
+           © 2003–2022 Juergen Reuter
+License: GPL-3+
+
+Files: lily/include/breathing-sign.hh
+Copyright: © 1999–2022 Michael Krause
+License: GPL-3+
+
+Files: lily/include/event-iterator.hh
+ lily/percent-repeat-engraver.cc
+ lily/percent-repeat-iterator.cc
+ lily/piano-pedal-engraver.cc
+ lily/slash-repeat-engraver.cc
+ lily/translator-group.cc
+ lily/tuplet-iterator.cc
+Copyright: © 1997–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+                       Erik Sandberg <mandolaerik@gmail.com>
+           © 1998–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+                       Erik Sandberg <mandolaerik@gmail.com>
+           © 2000–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+                       Erik Sandberg <mandolaerik@gmail.com>
+           © 2001–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+                       Erik Sandberg <mandolaerik@gmail.com>
+License: GPL-3+
+
+Files: lily/context-mod.cc
+ lily/include/context-mod.hh
+Copyright: © 2010–2022 Reinhold Kainhofer <reinhold@kainhofer.com>
+License: GPL-3+
+
+Files: lily/cue-clef-engraver.cc
+Copyright: © 1997–2015 Han-Wen Nienhuys <hanwen@xs4all.nl>
+                       Mats Bengtsson <matsb@s3.kth.se>
+           © 2010–2015 Reinhold Kainhofer <reinhold@kainhofer.com>
+License: GPL-3+
+
+Files: lily/dispatcher-scheme.cc
+ lily/dispatcher.cc
+ lily/include/dispatcher.hh
+ lily/include/listener.hh
+ lily/include/stream-event.hh
+ lily/listener.cc
+ lily/stream-event.cc
+ lily/stream-event-scheme.cc
+ scm/define-event-classes.scm
+ scm/ly-syntax-constructors.scm
+Copyright: © 2005 Erik Sandberg <mandolaerik@gmail.com>
+           © 2005–2022 Erik Sandberg <mandolaerik@gmail.com>
+           © 2006–2022 Erik Sandberg <mandolaerik@gmail.com>
+License: GPL-3+
+
+Files: lily/double-percent-repeat-engraver.cc
+ lily/episema-engraver.cc
+ lily/partial-iterator.cc
+ scm/document-context-mods.scm
+Copyright: © 2010–2022 Neil Puttock <n.puttock@gmail.com>
+           © 2011–2022 Neil Puttock <n.puttock@gmail.com>
+License: GPL-3+
+
+Files: lily/extender-engraver.cc
+ lily/hyphen-engraver.cc
+ lily/include/lyric-hyphen.hh
+Copyright: © 1999–2015 Glen Prideaux <glenprideaux@iname.com>,
+                       Han-Wen Nienhuys <hanwen@xs4all.nl>,
+                       Jan Nieuwenhuizen <janneke@gnu.org>
+License: GPL-3+
+
+Files: lily/forbid-break-engraver.cc
+Copyright: © 2002–2005 Han-Wen Nienhuys <hanwen@xs4all.nl>
+License: GPL-3+
+
+Files: lily/include/callback.hh
+ lily/include/fluid.hh
+ lily/include/grob-properties.hh
+ lily/include/lily-imports.hh
+ lily/include/lily-modules.hh
+ lily/lily-imports.cc
+ lily/lily-modules.cc
+Copyright: © 2014–2015 David Kastrup <dak@gnu.org>
+           © 2015 David Kastrup <dak@gnu.org>
+           © 2016 David Kastrup <dak@gnu.org>
+License: GPL-3+
+
+Files: lily/include/minimal-page-breaking.hh
+ lily/include/page-marker.hh
+ lily/minimal-page-breaking.cc
+ lily/note-column-scheme.cc
+ lily/page-marker-scheme.cc
+ lily/page-marker.cc
+ scm/define-music-display-methods.scm
+ scm/display-lily.scm
+Copyright: © 2005–2022 Nicolas Sceaux <nicolas.sceaux@free.fr>
+           © 2007–2022 Nicolas Sceaux <nicolas.sceaux@free.fr>
+           © 2010–2022 Nicolas Sceaux <nicolas.sceaux@free.fr>
+License: GPL-3+
+
+Files: lily/include/one-page-breaking.hh
+ lily/one-page-breaking.cc
+Copyright: © 2016 Paul Morris
+License: GPL-3+
+
+Files: lily/include/slur-engraver.hh
+Copyright: © 2013–2015 Mike Solomon <mike@mikesolomon.org>
+           © 2016 David Kastrup <dak@gnu.org>
+License: GPL-3+
+
+Files: lily/scale.cc
+Copyright: © 2016–2015 Han-Wen Nienhuys <hanwen@lilypond.org>
+             2007–2008 Rune Zedeler
+             2008      Joe Neeman <joeneeman@gmail.com>
+License: GPL-3+
+
+Files: lily/stanza-number-engraver.cc
+Copyright: © 2000–2015 Han-Wen Nienhuys <hanwen@xs4all.nl>,
+                       Glen Prideaux <glenprideaux@iname.com>
+License: GPL-3+
+
+Files: lily/tab-note-heads-engraver.cc
+Copyright: © 2002–2015 Han-Wen Nienhuys,
+                       Jean-Baptiste Lamy <jiba@tuxfamily.org>
+License: GPL-3+
+
+Files: ly/articulate.ly
+Copyright: © 2008, 2009, 2010, 2011 NICTA
+           Author: Peter Chubb <peter.chubb@nicta.com.au>
+License: GPL-3
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License, version 3,
+ as published by the Free Software Foundation.
+ .
+ WARNING: this file under GPLv3 only, not GPLv3+
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ See the GNU General Public License for more details.  It is
+ available in the Lilypond source tree, or at
+ http://www.gnu.org/licenses/gpl-3.0.html
+
+Files: ly/arabic.ly
+Copyright: © 2017 Amir Czwink <amir130@hotmail.de>
+           © 2008 Neil Puttock
+License: GPL-3+
+
+Files: ly/event-listener.ly
+Copyright: © 2011–2015 Graham Percival <graham@percival-music.ca>
+License: GPL-3+
+
+Files: ly/guile-debugger.ly
+ scm/guile-debugger.scm
+Copyright: © 2009–2022 Ian Hulin <ian@hulin.org.uk>
+           © 2010–2022 Ian Hulin <ian@hulin.org.uk>
+License: GPL-3+
+
+Files: ly/paper-defaults-init.ly
+Copyright: © 2004–2015 Han-Wen Nienhuys <hanwen@xs4all.nl>
+                       Jan Nieuwenhuizen <janneke@gnu.org>
+                       Neil Puttock <n.puttock@gmail.com>
+License: GPL-3+
+
+Files: ly/predefined-guitar-ninth-fretboards.ly
+Copyright: © 2008–2015 Jonathan Kulp
+License: GPL-3+
+
+Files: ly/predefined-ukulele-fretboards.ly
+Copyright: © 2009–2015 Matt Corks <mvcorks@alumni.uwaterloo.ca>
+License: GPL-3+
+
+Files: scm/accreg.scm
+Copyright: © 2013-2022 David Kastrup <dak@gnu.org>
+License: GPL-3+
+
+Files: scm/auto-beam.scm
+Copyright: © 2000–2022 Jan Nieuwenhuizen <janneke@gnu.org>
+License: GPL-3+
+
+Files: scm/bar-line.scm
+ scm/tablature.scm
+Copyright: © 2009–2022 Marc Hohl <marc@hohlart.de>
+License: GPL-3+
+
+Files: scm/breath.scm
+ scm/time-signature.scm
+Copyright: © 2022 Daniel Eble <nine.fierce.ballads@gmail.com>
+           © 2014–2022 Daniel Eble <nine.fierce.ballads@gmail.com>
+License: GPL-3+
+
+Files: scm/chord-entry.scm
+Copyright: © 2004–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+License: GPL-3+
+
+Files: scm/chord-ignatzek-names.scm
+Copyright: © 2000–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+License: GPL-3+
+
+Files: scm/clip-region.scm
+Copyright: © 2006–2022 Han-Wen Nienhuys <hanwen@lilypond.org>
+License: GPL-3+
+
+Files: scm/color.scm
+Copyright: © 2005–2022 Bernard Hurley <bernard@fong-hurley.org.uk>
+License: GPL-3+
+
+Files: scm/curried-definitions.scm
+Copyright: © 2022 Jean Abou Samra <jean@abou-samra.fr>
+License: GPL-3+
+
+Files: scm/define-music-callbacks.scm
+Copyright: © 1998–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+                       Jan Nieuwenhuizen <janneke@gnu.org>
+                       Neil Puttock <n.puttock@gmail.com>
+                       Carl Sorensen <c_sorensen@byu.edu>
+License: GPL-3+
+
+Files: scm/define-note-names.scm
+Copyright: © 2010–2022 Valentin Villenave <valentin@villenave.net> et al:
+           © 1996–2022 Han-Wen Nienhuys <hanwen@xs4all.nl> (Nederlands)
+           © 1998–2022 Jaume Obrador <jobrador@ipc4.uib.es> (Catalan)
+           © 1997–2022 Roland Meier <meier@informatik.th-darmstadt.de>
+                       Bjoern Jacke <bjoern.jacke@gmx.de> (Deutsch)
+           © 1996–2022 Han-Wen Nienhuys <hanwen@xs4all.nl> (English)
+           © 2002–2022 Carlos García Suárez <cgscqmp@terra.es>
+                       Maximiliano G. G. <mxgdvg@yahoo.it> (Espanol)
+           © 1998–2022 Paolo Zuliani <zuliap@easynet.it>
+                       Eric Wurbel <wurbel@univ-tln.fr> (Italiano)
+           © 1998–2022 Arvid Grøtting <arvidg@ifi.uio.no> (Norsk)
+           © 2004–2022 Pedro Kröger <kroeger@pedrokroeger.net> (Portugues)
+           © 2001–2022 Heikki Junes <heikki.junes@hut.fi> (Suomi)
+           © 1997–2022 Mats Bengtsson <mabe@violin.s3.kth.se> (Svenska)
+           © 2004–2022 Hendrik Maryns <hendrik.maryns@ugent.be> (Vlaams)
+License: GPL-3+
+
+Files: scm/define-stencil-commands.scm
+ scm/file-cache.scm
+Copyright: © 2005–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+License: GPL-3+
+
+Files: scm/document-identifiers.scm
+Copyright: © 2006–2022 Han-Wen Nienhuys <hanwen@lilypond.org>
+License: GPL-3+
+
+Files: scm/document-outside-staff-priorities.scm
+ scm/document-paper-sizes.scm
+Copyright: © 2021–2022 Jean Abou Samra <jean@abou-samra.fr>
+License: GPL-3+
+
+Files: scm/document-type-predicates.scm
+Copyright: © 2010–2022 Mark Polesky <markpolesky@yahoo.com>
+License: GPL-3+
+
+Files: scm/flag-styles.scm
+Copyright: © 2008–2022 Reinhold Kainhofer <reinhold@kainhofer.com>
+License: GPL-3+
+
+Files: scm/font.scm
+ scm/framework-ps.scm
+Copyright: © 2004–2022 Han-Wen Nienhuys <hanwen@xs4all.nl>
+License: GPL-3+
+
+Files: scm/framework-cairo.scm
+Copyright: © 2021–2022 Knut Petersen <knupero@gmail.com>
+License: GPL-3+
+
+Files: scm/framework-svg.scm
+Copyright: © 2004–2022 Jan Nieuwenhuizen <janneke@gnu.org>
+                       Patrick McCarty <pnorcks@gmail.com>
+License: GPL-3+
+
+Files: scm/harp-pedals.scm
+Copyright: © 2008–2022 Reinhold Kainhofer <reinhold@kainhofer.com>
+License: GPL-3+
+
+Files: scm/hyphenate-internal-words.scm
+Copyright: © 2021–2022 Jean Abou Samra <jean@abou-samra.fr>
+License: GPL-3+
+
+Files: scm/layout-beam.scm
+Copyright: © 2000–2022 Jan Nieuwenhuizen <janneke@gnu.org>
+License: GPL-3+
+
+Files: scm/layout-slur.scm
+Copyright: © 2000–2022 Jan Nieuwenhuizen <janneke@gnu.org>
+License: GPL-3+
+
+Files: scm/modal-transforms.scm
+Copyright: © 2011–2015 Ellis & Grant, Inc.
+           Author: Michael Ellis <michael.f.ellis@gmail.com>
+License: GPL-3+
+
+Files: scm/parser-ly-from-scheme.scm
+Copyright: © 2004–2015 Nicolas Sceaux <nicolas.sceaux@free.fr>
+                       Jan Nieuwenhuizen <janneke@gnu.org>
+License: GPL-3+
+
+Files: scm/scheme-engravers.scm
+Copyright: © 2012 David Nalesnik <david.nalesnik@gmail.com>
+License: GPL-3+
+
+Files: scripts/abc2ly.py
+Copyright: © 1999–2007 Han-Wen Nienhuys <hanwen@xs4all.nl>
+           © 1999 Roy Rankin <Roy.Rankin@@alcatel.com.au>
+           © 2000, 2006 Laura Conrad <lconrad@laymusic.org>
+           © 2004 Guy Gascoigne-Piggford
+License: GPL-3+
+Comment: Originally named scripts/abc-2-ly.py
+
+Files: scripts/auxiliar/check_translation.py
+Copyright: © 2007–2009 John Mandereau <john.mandereau@gmail.com>
+License: GPL-3+
+
+Files: scripts/auxiliar/makelsr.pl
+Copyright: © 2019–2022 Werner Lemberg <wl@gnu.org>
+License: GPL-3+
+
+Files: scripts/build/mf2pt1.pl
+Copyright: © 2012 Scott Pakin <scott+mf@pakin.org>
+License: LPPL-1.3c+
+
+Files: scripts/etf2ly.py
+Copyright: © 2000–2015 Jan Nieuwenhuizen <janneke@gnu.org>
+                       Han-Wen Nienhuys <hanwen@xs4all.nl>
+License: GPL-3+
+
+Files: scripts/lilypond-book.py
+Copyright: © 1998–2015 Jan Nieuwenhuizen <janneke@gnu.org>
+                       Han-Wen Nienhuys <hanwen@xs4all.nl>
+License: GPL-3+
+
+Files: Documentation/tex/texinfo.tex
+Copyright: © 1985, 1986, 1988, 1990-2019 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: Documentation/tex/txi-en.tex
+ Documentation/tex/txi-hu.tex
+ Documentation/tex/txi-it.tex
+ Documentation/tex/txi-nl.tex
+Copyright: © 1985, 1986, 1988, 1990-2022 Free Software Foundation
+License: GPL-3+
+
+Files: Documentation/tex/txi-ca.tex
+Copyright: © 2015 Walter Garcia-Fontes
+License: GPL-3+
+
+Files: Documentation/tex/txi-es.tex
+Copyright: © 1999, 2007, 2008, 2015 Adrian Perez Jorge
+License: GPL-3+
+
+Files: Documentation/tex/txi-de.tex
+Copyright: © 1999, 2007, 2008 Free Software Foundation
+License: GPL-3+
+Comment: Written by Karl Heinz Marbaise, 18. January 1999, <kama@hippo.fido.de>
+
+Files: Documentation/tex/txi-fr.tex
+Copyright: © 1999, 2007, 2008 Free Software Foundation
+License: GPL-3+
+Comment: Translated by Laurent Bourbeau <bourbeau@progiciels-bpi.ca>
+         Translation date: le 10 décembre 1999.
+
+Files: Documentation/tex/txi-ja.tex
+Copyright: © 1999, 2007, 2008, 2016 Free Software Foundation, Inc.
+License: GPL-3+
+Comment: Written by Masamichi Hosoda, 5 May 2016, <trueroad@trueroad.jp>
+
+Files: Documentation/tex/txi-pt.tex
+Copyright: © 1999, 2007, 2008 Free Software Foundation
+License: GPL-3+
+Comment: Written by Lalo Martins <lalo@webcom.com> at 05 August 1999
+
+License: BSL-1.0
+ Boost Software License - Version 1.0 - August 17th, 2003
+ .
+ Permission is hereby granted, free of charge, to any person or organization
+ obtaining a copy of the software and accompanying documentation covered by
+ this license (the "Software") to use, reproduce, display, distribute,
+ execute, and transmit the Software, and to prepare derivative works of the
+ Software, and to permit third-parties to whom the Software is furnished to
+ do so, all subject to the following:
+ .
+ The copyright notices in the Software and this entire statement, including
+ the above license grant, this restriction and the following disclaimer,
+ must be included in all copies of the Software, in whole or in part, and
+ all derivative works of the Software, unless such copies or derivative
+ works are solely in the form of machine-executable object code generated by
+ a source language processor.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+ SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+ FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+
+License: GFDL-1.3+
+ Permission is granted to copy, distribute and/or modify the
+ documentation for GNU LilyPond under the terms of the GNU Free
+ Documentation License as published by the Free Software Foundation,
+ either version 1.3, or (at your option) any later version; with no
+ Invariant Sections, no Front-Cover Texts and no Back-Cover Texts.
+ .
+ On Debian systems, the complete text of version 1.3 of the GNU Free
+ Documentation License can be found in
+ `/usr/share/common-licenses/GFDL-1.3'.
+
+License: GPL-2+
+ This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
+ the Free Software Foundation, either version 2 of the License, or
  (at your option) any later version.
  .
- This package is distributed in the hope that it will be useful,
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the complete text of version 2 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
  .
  You should have received a copy of the GNU General Public License
- along with this program. If not, see <https://www.gnu.org/licenses/>
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  .
- On Debian systems, the complete text of the GNU General
- Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+ On Debian systems, the complete text of version 3 of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-3'.
+
+License: LPPL-1.3c+
+  The LaTeX Project Public License
+  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+ .
+ LPPL Version 1.3c  2008-05-04
+ .
+ Copyright 1999 2002-2008 LaTeX3 Project
+     Everyone is allowed to distribute verbatim copies of this
+     license document, but modification of it is not allowed.
+ .
+ .
+ PREAMBLE
+ ========
+ .
+ The LaTeX Project Public License (LPPL) is the primary license under
+ which the LaTeX kernel and the base LaTeX packages are distributed.
+ .
+ You may use this license for any work of which you hold the copyright
+ and which you wish to distribute.  This license may be particularly
+ suitable if your work is TeX-related (such as a LaTeX package), but
+ it is written in such a way that you can use it even if your work is
+ unrelated to TeX.
+ .
+ The section `WHETHER AND HOW TO DISTRIBUTE WORKS UNDER THIS LICENSE',
+ below, gives instructions, examples, and recommendations for authors
+ who are considering distributing their works under this license.
+ .
+ This license gives conditions under which a work may be distributed
+ and modified, as well as conditions under which modified versions of
+ that work may be distributed.
+ .
+ We, the LaTeX3 Project, believe that the conditions below give you
+ the freedom to make and distribute modified versions of your work
+ that conform with whatever technical specifications you wish while
+ maintaining the availability, integrity, and reliability of
+ that work.  If you do not see how to achieve your goal while
+ meeting these conditions, then read the document `cfgguide.tex'
+ and `modguide.tex' in the base LaTeX distribution for suggestions.
+ .
+ .
+ DEFINITIONS
+ ===========
+ .
+ In this license document the following terms are used:
+ .
+    `Work'
+     Any work being distributed under this License.
+ .    `Derived Work'
+     Any work that under any applicable law is derived from the Work.
+ .
+    `Modification'
+     Any procedure that produces a Derived Work under any applicable
+     law -- for example, the production of a file containing an
+     original file associated with the Work or a significant portion of
+     such a file, either verbatim or with modifications and/or
+     translated into another language.
+ .
+    `Modify'
+     To apply any procedure that produces a Derived Work under any
+     applicable law.
+ .    `Distribution'
+     Making copies of the Work available from one person to another, in
+     whole or in part.  Distribution includes (but is not limited to)
+     making any electronic components of the Work accessible by
+     file transfer protocols such as FTP or HTTP or by shared file
+     systems such as Sun's Network File System (NFS).
+ .
+    `Compiled Work'
+     A version of the Work that has been processed into a form where it
+     is directly usable on a computer system.  This processing may
+     include using installation facilities provided by the Work,
+     transformations of the Work, copying of components of the Work, or
+     other activities.  Note that modification of any installation
+     facilities provided by the Work constitutes modification of the Work.
+ .
+    `Current Maintainer'
+     A person or persons nominated as such within the Work.  If there is
+     no such explicit nomination then it is the `Copyright Holder' under
+     any applicable law.
+ .
+    `Base Interpreter'
+     A program or process that is normally needed for running or
+     interpreting a part or the whole of the Work.
+ .
+     A Base Interpreter may depend on external components but these
+     are not considered part of the Base Interpreter provided that each
+     external component clearly identifies itself whenever it is used
+     interactively.  Unless explicitly specified when applying the
+     license to the Work, the only applicable Base Interpreter is a
+     `LaTeX-Format' or in the case of files belonging to the
+     `LaTeX-format' a program implementing the `TeX language'.
+ .
+ .
+ .
+ CONDITIONS ON DISTRIBUTION AND MODIFICATION
+ ===========================================
+ .
+ 1.  Activities other than distribution and/or modification of the Work
+ are not covered by this license; they are outside its scope.  In
+ particular, the act of running the Work is not restricted and no
+ requirements are made concerning any offers of support for the Work.
+ .
+ 2.  You may distribute a complete, unmodified copy of the Work as you
+ received it.  Distribution of only part of the Work is considered
+ modification of the Work, and no right to distribute such a Derived
+ Work may be assumed under the terms of this clause.
+ .
+ 3.  You may distribute a Compiled Work that has been generated from a
+ complete, unmodified copy of the Work as distributed under Clause 2
+ above, as long as that Compiled Work is distributed in such a way that
+ the recipients may install the Compiled Work on their system exactly
+ as it would have been installed if they generated a Compiled Work
+ directly from the Work.
+ .
+ 4.  If you are the Current Maintainer of the Work, you may, without
+ restriction, modify the Work, thus creating a Derived Work.  You may
+ also distribute the Derived Work without restriction, including
+ Compiled Works generated from the Derived Work.  Derived Works
+ distributed in this manner by the Current Maintainer are considered to
+ be updated versions of the Work.
+ .
+ 5.  If you are not the Current Maintainer of the Work, you may modify
+ your copy of the Work, thus creating a Derived Work based on the Work,
+ and compile this Derived Work, thus creating a Compiled Work based on
+ the Derived Work.
+ .
+ 6.  If you are not the Current Maintainer of the Work, you may
+ distribute a Derived Work provided the following conditions are met
+ for every component of the Work unless that component clearly states
+ in the copyright notice that it is exempt from that condition.  Only
+ the Current Maintainer is allowed to add such statements of exemption
+ to a component of the Work.
+ .
+   a. If a component of this Derived Work can be a direct replacement
+      for a component of the Work when that component is used with the
+      Base Interpreter, then, wherever this component of the Work
+      identifies itself to the user when used interactively with that
+      Base Interpreter, the replacement component of this Derived Work
+      clearly and unambiguously identifies itself as a modified version
+      of this component to the user when used interactively with that
+      Base Interpreter.
+ .   b. Every component of the Derived Work contains prominent notices
+      detailing the nature of the changes to that component, or a
+      prominent reference to another file that is distributed as part
+      of the Derived Work and that contains a complete and accurate log
+      of the changes.
+ .   c. No information in the Derived Work implies that any persons,
+      including (but not limited to) the authors of the original version
+      of the Work, provide any support, including (but not limited to)
+      the reporting and handling of errors, to recipients of the
+      Derived Work unless those persons have stated explicitly that
+      they do provide such support for the Derived Work.
+ .
+   d. You distribute at least one of the following with the Derived Work:
+ .
+        1. A complete, unmodified copy of the Work;
+           if your distribution of a modified component is made by
+           offering access to copy the modified component from a
+           designated place, then offering equivalent access to copy
+           the Work from the same or some similar place meets this
+           condition, even though third parties are not compelled to
+           copy the Work along with the modified component;
+ .
+        2. Information that is sufficient to obtain a complete,
+           unmodified copy of the Work.
+ .
+ 7.  If you are not the Current Maintainer of the Work, you may
+ distribute a Compiled Work generated from a Derived Work, as long as
+ the Derived Work is distributed to all recipients of the Compiled
+ Work, and as long as the conditions of Clause 6, above, are met with
+ regard to the Derived Work.
+ .
+ 8.  The conditions above are not intended to prohibit, and hence do not
+ apply to, the modification, by any method, of any component so that it
+ becomes identical to an updated version of that component of the Work as
+ it is distributed by the Current Maintainer under Clause 4, above.
+ .
+ 9.  Distribution of the Work or any Derived Work in an alternative
+ format, where the Work or that Derived Work (in whole or in part) is
+ then produced by applying some process to that format, does not relax or
+ nullify any sections of this license as they pertain to the results of
+ applying that process.
+ . 10. a. A Derived Work may be distributed under a different license
+        provided that license itself honors the conditions listed in
+        Clause 6 above, in regard to the Work, though it does not have
+        to honor the rest of the conditions in this license.
+ .     b. If a Derived Work is distributed under a different license, that
+        Derived Work must provide sufficient documentation as part of
+        itself to allow each recipient of that Derived Work to honor the
+        restrictions in Clause 6 above, concerning changes from the Work.
+ .
+ 11. This license places no restrictions on works that are unrelated to
+ the Work, nor does this license place any restrictions on aggregating
+ such works with the Work by any means.
+ .
+ 12.  Nothing in this license is intended to, or may be used to, prevent
+ complete compliance by all parties with all applicable laws.
+ .
+ .
+ NO WARRANTY
+ ===========
+ .
+ There is no warranty for the Work.  Except when otherwise stated in
+ writing, the Copyright Holder provides the Work `as is', without
+ warranty of any kind, either expressed or implied, including, but not
+ limited to, the implied warranties of merchantability and fitness for a
+ particular purpose.  The entire risk as to the quality and performance
+ of the Work is with you.  Should the Work prove defective, you assume
+ the cost of all necessary servicing, repair, or correction.
+ .
+ In no event unless required by applicable law or agreed to in writing
+ will The Copyright Holder, or any author named in the components of the
+ Work, or any other party who may distribute and/or modify the Work as
+ permitted above, be liable to you for damages, including any general,
+ special, incidental or consequential damages arising out of any use of
+ the Work or out of inability to use the Work (including, but not limited
+ to, loss of data, data being rendered inaccurate, or losses sustained by
+ anyone as a result of any failure of the Work to operate with any other
+ programs), even if the Copyright Holder or said author or said other
+ party has been advised of the possibility of such damages.
+ .
+ .
+ MAINTENANCE OF THE WORK
+ =======================
+ .
+ The Work has the status `author-maintained' if the Copyright Holder
+ explicitly and prominently states near the primary copyright notice in
+ the Work that the Work can only be maintained by the Copyright Holder
+ or simply that it is `author-maintained'.
+ .
+ The Work has the status `maintained' if there is a Current Maintainer
+ who has indicated in the Work that they are willing to receive error
+ reports for the Work (for example, by supplying a valid e-mail
+ address). It is not required for the Current Maintainer to acknowledge
+ or act upon these error reports.
+ .
+ The Work changes from status `maintained' to `unmaintained' if there
+ is no Current Maintainer, or the person stated to be Current
+ Maintainer of the work cannot be reached through the indicated means
+ of communication for a period of six months, and there are no other
+ significant signs of active maintenance.
+ .
+ You can become the Current Maintainer of the Work by agreement with
+ any existing Current Maintainer to take over this role.
+ .
+ If the Work is unmaintained, you can become the Current Maintainer of
+ the Work through the following steps:
+ .
+  1.  Make a reasonable attempt to trace the Current Maintainer (and
+      the Copyright Holder, if the two differ) through the means of
+      an Internet or similar search.
+ .
+  2.  If this search is successful, then enquire whether the Work
+      is still maintained.
+ .
+   a. If it is being maintained, then ask the Current Maintainer
+      to update their communication data within one month.
+ .   b. If the search is unsuccessful or no action to resume active
+      maintenance is taken by the Current Maintainer, then announce
+      within the pertinent community your intention to take over
+      maintenance.  (If the Work is a LaTeX work, this could be
+      done, for example, by posting to comp.text.tex.)
+ .
+  3a. If the Current Maintainer is reachable and agrees to pass
+      maintenance of the Work to you, then this takes effect
+      immediately upon announcement.
+ .
+   b. If the Current Maintainer is not reachable and the Copyright
+      Holder agrees that maintenance of the Work be passed to you,
+      then this takes effect immediately upon announcement.
+ .
+  4.  If you make an `intention announcement' as described in 2b. above
+      and after three months your intention is challenged neither by
+      the Current Maintainer nor by the Copyright Holder nor by other
+      people, then you may arrange for the Work to be changed so as
+      to name you as the (new) Current Maintainer.
+ .
+  5.  If the previously unreachable Current Maintainer becomes
+      reachable once more within three months of a change completed
+      under the terms of 3b) or 4), then that Current Maintainer must
+      become or remain the Current Maintainer upon request provided
+      they then update their communication data within one month.
+ .
+ A change in the Current Maintainer does not, of itself, alter the fact
+ that the Work is distributed under the LPPL license.
+ .
+ If you become the Current Maintainer of the Work, you should
+ immediately provide, within the Work, a prominent and unambiguous
+ statement of your status as Current Maintainer.  You should also
+ announce your new status to the same pertinent community as
+ in 2b) above.
+ .
+ .
+ WHETHER AND HOW TO DISTRIBUTE WORKS UNDER THIS LICENSE
+ ======================================================
+ .
+ This section contains important instructions, examples, and
+ recommendations for authors who are considering distributing their
+ works under this license.  These authors are addressed as `you' in
+ this section.
+ .
+ Choosing This License or Another License
+ ----------------------------------------
+ .
+ If for any part of your work you want or need to use *distribution*
+ conditions that differ significantly from those in this license, then
+ do not refer to this license anywhere in your work but, instead,
+ distribute your work under a different license.  You may use the text
+ of this license as a model for your own license, but your license
+ should not refer to the LPPL or otherwise give the impression that
+ your work is distributed under the LPPL.
+ .
+ The document `modguide.tex' in the base LaTeX distribution explains
+ the motivation behind the conditions of this license.  It explains,
+ for example, why distributing LaTeX under the GNU General Public
+ License (GPL) was considered inappropriate.  Even if your work is
+ unrelated to LaTeX, the discussion in `modguide.tex' may still be
+ relevant, and authors intending to distribute their works under any
+ license are encouraged to read it.
+ .
+ A Recommendation on Modification Without Distribution
+ -----------------------------------------------------
+ .
+ It is wise never to modify a component of the Work, even for your own
+ personal use, without also meeting the above conditions for
+ distributing the modified component.  While you might intend that such
+ modifications will never be distributed, often this will happen by
+ accident -- you may forget that you have modified that component; or
+ it may not occur to you when allowing others to access the modified
+ version that you are thus distributing it and violating the conditions
+ of this license in ways that could have legal implications and, worse,
+ cause problems for the community.  It is therefore usually in your
+ best interest to keep your copy of the Work identical with the public
+ one.  Many works provide ways to control the behavior of that work
+ without altering any of its licensed components.
+ .
+ How to Use This License
+ -----------------------
+ .
+ To use this license, place in each of the components of your work both
+ an explicit copyright notice including your name and the year the work
+ was authored and/or last substantially modified.  Include also a
+ statement that the distribution and/or modification of that
+ component is constrained by the conditions in this license.
+ .
+ Here is an example of such a notice and statement:
+ .
+   %% pig.dtx
+   %% Copyright 2005 M. Y. Name
+   %
+   % This work may be distributed and/or modified under the
+   % conditions of the LaTeX Project Public License, either version 1.3
+   % of this license or (at your option) any later version.
+   % The latest version of this license is in
+   %   http://www.latex-project.org/lppl.txt
+   % and version 1.3 or later is part of all distributions of LaTeX
+   % version 2005/12/01 or later.
+   %
+   % This work has the LPPL maintenance status `maintained'.
+   %
+   % The Current Maintainer of this work is M. Y. Name.
+   %
+   % This work consists of the files pig.dtx and pig.ins
+   % and the derived file pig.sty.
+ .
+ Given such a notice and statement in a file, the conditions
+ given in this license document would apply, with the `Work' referring
+ to the three files `pig.dtx', `pig.ins', and `pig.sty' (the last being
+ generated from `pig.dtx' using `pig.ins'), the `Base Interpreter'
+ referring to any `LaTeX-Format', and both `Copyright Holder' and
+ `Current Maintainer' referring to the person `M. Y. Name'.
+ .
+ If you do not want the Maintenance section of LPPL to apply to your
+ Work, change `maintained' above into `author-maintained'.
+ However, we recommend that you use `maintained', as the Maintenance
+ section was added in order to ensure that your Work remains useful to
+ the community even when you can no longer maintain and support it
+ yourself.
+ .
+ Derived Works That Are Not Replacements
+ ---------------------------------------
+ .
+ Several clauses of the LPPL specify means to provide reliability and
+ stability for the user community. They therefore concern themselves
+ with the case that a Derived Work is intended to be used as a
+ (compatible or incompatible) replacement of the original Work. If
+ this is not the case (e.g., if a few lines of code are reused for a
+ completely different task), then clauses 6b and 6d shall not apply.
+ .
+ .
+ Important Recommendations
+ -------------------------
+ .
+  Defining What Constitutes the Work
+ .
+    The LPPL requires that distributions of the Work contain all the
+    files of the Work.  It is therefore important that you provide a
+    way for the licensee to determine which files constitute the Work.
+    This could, for example, be achieved by explicitly listing all the
+    files of the Work near the copyright notice of each file or by
+    using a line such as:
+ .
+     % This work consists of all files listed in manifest.txt.
+ .
+    in that place.  In the absence of an unequivocal list it might be
+    impossible for the licensee to determine what is considered by you
+    to comprise the Work and, in such a case, the licensee would be
+    entitled to make reasonable conjectures as to which files comprise
+    the Work.
+
+License: OFL-1.1
+ This Font Software is licensed under the SIL Open Font License, Version 1.1.
+ .
+ This license is copied below, and is also available with a FAQ at:
+ http://scripts.sil.org/OFL
+ .
+ SIL OPEN FONT LICENSE
+ .
+ Version 1.1 - 26 February 2007
+ .
+ PREAMBLE
+ The goals of the Open Font License (OFL) are to stimulate worldwide
+ development of collaborative font projects, to support the font creation
+ efforts of academic and linguistic communities, and to provide a free and
+ open framework in which fonts may be shared and improved in partnership
+ with others.
+ .
+ The OFL allows the licensed fonts to be used, studied, modified and
+ redistributed freely as long as they are not sold by themselves. The
+ fonts, including any derivative works, can be bundled, embedded,
+ redistributed and/or sold with any software provided that any reserved
+ names are not used by derivative works. The fonts and derivatives,
+ however, cannot be released under any other type of license. The
+ requirement for fonts to remain under this license does not apply
+ to any document created using the fonts or their derivatives.
+ .
+ DEFINITIONS
+ "Font Software" refers to the set of files released by the Copyright
+ Holder(s) under this license and clearly marked as such. This may
+ include source files, build scripts and documentation.
+ .
+ "Reserved Font Name" refers to any names specified as such after the
+ copyright statement(s).
+ .
+ "Original Version" refers to the collection of Font Software components as
+ distributed by the Copyright Holder(s).
+ .
+ "Modified Version" refers to any derivative made by adding to, deleting,
+ or substituting -- in part or in whole -- any of the components of the
+ Original Version, by changing formats or by porting the Font Software to a
+ new environment.
+ .
+ "Author" refers to any designer, engineer, programmer, technical
+ writer or other person who contributed to the Font Software.
+ .
+ PERMISSION & CONDITIONS
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of the Font Software, to use, study, copy, merge, embed, modify,
+ redistribute, and sell modified and unmodified copies of the Font
+ Software, subject to the following conditions:
+ .
+ 1) Neither the Font Software nor any of its individual components,
+ in Original or Modified Versions, may be sold by itself.
+ .
+ 2) Original or Modified Versions of the Font Software may be bundled,
+ redistributed and/or sold with any software, provided that each copy
+ contains the above copyright notice and this license. These can be
+ included either as stand-alone text files, human-readable headers or
+ in the appropriate machine-readable metadata fields within text or
+ binary files as long as those fields can be easily viewed by the user.
+ .
+ 3) No Modified Version of the Font Software may use the Reserved Font
+ Name(s) unless explicit written permission is granted by the corresponding
+ Copyright Holder. This restriction only applies to the primary font name as
+ presented to the users.
+ .
+ 4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+ Software shall not be used to promote, endorse or advertise any
+ Modified Version, except to acknowledge the contribution(s) of the
+ Copyright Holder(s) and the Author(s) or with their explicit written
+ permission.
+ .
+ 5) The Font Software, modified or unmodified, in part or in whole,
+ must be distributed entirely under this license, and must not be
+ distributed under any other license. The requirement for fonts to
+ remain under this license does not apply to any document created
+ using the Font Software.
+ .
+ TERMINATION
+ This license becomes null and void if any of the above conditions are
+ not met.
+ .
+ DISCLAIMER
+ THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+ OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+ COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+ OTHER DEALINGS IN THE FONT SOFTWARE.

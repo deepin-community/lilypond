@@ -1,0 +1,32 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+La commande @code{\\key} détermine la propriété @code{keyAlterations} d'un
+contexte @code{Staff}.
+
+Des armures inhabituelles peuvent être spécifiées en modifiant
+directement cette propriété. Il s'agit en l'occurrence de définir une
+liste :
+
+@verbatim
+\\set Staff.keyAlterations =
+  #`(((octave . pas) . altération) ((octave . pas) . altération)
+  @dots{})
+@end verbatim
+
+@noindent
+dans laquelle, et pour chaque élément, @code{octave} spécifie l'octave
+(0 pour celle allant du do médium au si supérieur), @code{pas} la note
+dans cette octave (0 pour do et 6 pour si), et @code{altération} sera
+@code{,SHARP} ou @code{,FLAT} ou @code{,DOUBLE-SHARP}, etc. (attention à
+la virgule en préfixe).
+
+Une formulation abrégée -- @code{(pas . altération)} -- signifie que
+l'altération de l'élément en question sera valide quelle que soit
+l'octave.
+
+En ce qui concerne les gammes microtonales dans lesquelles un
+« dièse » n'est pas d'un centième, @code{altération} se réfère à un
+deux-centième de ton entier.
+"
+
+  doctitlefr = "Armures inhabituelles"
