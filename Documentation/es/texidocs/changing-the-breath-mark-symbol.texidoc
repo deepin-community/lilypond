@@ -1,0 +1,8 @@
+%% Translation of GIT committish: 06e7d00a2bd52124489bdd8e106199da225bebb6
+  texidoces = "
+El glifo de la marca de respiración se puede ajustar
+sobreescribiendo la propiedad de texto del objeto de presentación
+@code{BreathingSign}, con cualquier otro texto de marcado.
+
+"
+  doctitlees = "Cambiar el símbolo de la marca de respiración"

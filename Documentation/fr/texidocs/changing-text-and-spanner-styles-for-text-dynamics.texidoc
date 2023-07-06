@@ -1,0 +1,13 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Le texte par défaut des crescendos et decrescendos se change en
+modifiant les propriétés de contexte @code{crescendoText} et
+@code{decrescendoText}.
+
+L'aspect de la ligne d'extension est fonction de la propriété
+@code{'style} du @code{DynamicTextSpanner}. Sa valeur par défaut est
+@code{'dashed-line}, mais d'autres valeurs sont disponibles, comme
+@code{'line}, @code{'dotted-line} et @code{'none}.
+"
+
+  doctitlefr = "Modification du texte et de l'extension de nuances textuelles"

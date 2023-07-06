@@ -1,0 +1,37 @@
+@c -*- coding: utf-8; mode: texinfo; documentlanguage: es -*-
+@ignore
+    Translation of GIT committish: 26a079ca2393d053315ef8dbef626c897dc9645a
+
+    When revising a translation, copy the HEAD committish of the
+    version that you are working on.  For details, see the Contributors'
+    Guide, node Updating translation committishes..
+@end ignore
+
+@c \version "2.16.0"
+
+@node Notación musical
+@chapter Notación musical
+@translationof Musical notation
+
+Este capítulo explica cómo crear notación musical.
+
+@menu
+* Alturas::                 Escritura y presentación de la altura de las notas.
+* Duraciones::              Escritura y presentación de las duraciones de las notas.
+* Expresiones::             Añadir expresión a las notas.
+* Repeticiones::            Repetir música.
+* Notas simultáneas::       Más de una nota a la vez.
+* Notación de los pentagramas:: Imprimir pentagramas.
+* Anotaciones editoriales:: Notación especial para aumentar la legibilidad.
+* Texto::                   Añadir texto a las partituras.
+@end menu
+
+@include es/notation/pitches.itely
+@include es/notation/rhythms.itely
+@include es/notation/expressive.itely
+@include es/notation/repeats.itely
+@include es/notation/simultaneous.itely
+@include es/notation/staff.itely
+@include es/notation/editorial.itely
+@include es/notation/text.itely
+

@@ -1,0 +1,8 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Cet exemple illustre la manière de positionner une portée d'ossia et
+des paroles à l'aide des propriétés de contexte @code{alignBelowContext}
+et @code{alignAboveContext}.
+"
+
+  doctitlefr = "Positionnement d'une ossia et des paroles"

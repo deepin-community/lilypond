@@ -1,0 +1,9 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+Este ejemplo muestra cómo hacer una transcripción moderna de canto
+gregoriano. El canto gregoriano no tiene compás ni plicas; utiliza
+solamente cabezas de nota de blanca y de negra, y unas marcas
+especiales que indican silencios de distintas longitudes.
+
+"
+  doctitlees = "Plantilla para notación de música antigua (transcripción moderna de canto gregoriano)"

@@ -1,0 +1,10 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+La commande de @emph{markup} @code{\\circle} permet de dessiner un
+cercle autour de différents objets comme des indications de doigté.
+D'autres objets nécessitent de faire appel à des techniques spécifiques.
+Cet exemple illustre deux manières de procéder : pour les repères, et
+pour les numéros de mesure.
+"
+
+  doctitlefr = "Encercler divers objets"

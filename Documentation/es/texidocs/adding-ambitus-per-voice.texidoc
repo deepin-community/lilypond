@@ -1,0 +1,7 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  doctitlees = "Añadir un ámbito por voz"
+  texidoces = "
+Se puede añadir un ámbito por cada voz. En este caso, el ámbito se
+debe desplazar manualmente para evitar colisiones.
+
+"

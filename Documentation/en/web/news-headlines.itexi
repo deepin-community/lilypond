@@ -1,0 +1,10 @@
+@c -*- coding: utf-8; mode: texinfo; -*-
+@c This file is used in the web.texi file.
+
+@c when you add a new item, consider removing the lowest item(s)
+
+@c used for news about the upcoming release; see CG on Release Work
+
+@ref{News, LilyPond 2.24.1 released - @emph{February 12, 2023}}
+
+@ref{News, LilyPond 2.25.1 released - @emph{January 21, 2023}}

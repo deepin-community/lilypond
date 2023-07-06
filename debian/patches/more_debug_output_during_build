@@ -1,0 +1,27 @@
+Description: Increase debug output when builds fail
+Forwarded: not-needed
+Origin: vendor
+Author: Don Armstrong <don@debian.org>
+--- a/scripts/build/run-and-check.sh
++++ b/scripts/build/run-and-check.sh
+@@ -19,7 +19,9 @@
+ 	echo
+ 	echo "  $CurrDir/$2"
+ 	echo
+-	echo "for errors"
++	echo "for errors:"
++	echo
++	cat $2
+ 	echo
+ fi
+ exit $RetVal
+--- a/scm/ps-to-png.scm
++++ b/scm/ps-to-png.scm
+@@ -141,6 +141,7 @@
+                         *unspecified*
+                         (ly:format "-dDEVICEHEIGHTPOINTS=~$" page-height))
+                     "-dGraphicsAlphaBits=4"
++                    "-q"
+                     "-dTextAlphaBits=4"
+                     "-dNOPAUSE"
+                     "-dBATCH"

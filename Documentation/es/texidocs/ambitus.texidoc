@@ -1,0 +1,12 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+Las indicaciones de ámbito o tesitura indican rangos de alturas para
+las voces.
+
+
+Las alteraciones accidentales sólo se muestran si no forman parte de
+la armadura de tonalidad. Los objetos gráficos @code{AmbitusNoteHead}
+también tienen líneas adicionales.
+
+"
+  doctitlees = "Indicaciones de tesitura"

@@ -1,0 +1,7 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+Es posible ajustar la separación predeterminada entre
+las notas de la indicación de tesitura y la línea que las une.
+
+"
+  doctitlees = "Modificación de la separación en las indicaciones de tesitura"

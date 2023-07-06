@@ -1,0 +1,8 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Cet exemple démontre comment définir son propre graveur de tessiture à
+base de code Scheme. Il s'agit d'une réécriture en Scheme du code
+contenu dans le fichier @file{lily/ambitus-engraver.cc}.
+"
+
+  doctitlefr = "Définition d'un graveur en Scheme : graveur d'ambitus"

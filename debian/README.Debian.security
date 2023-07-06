@@ -1,0 +1,13 @@
+Lilypond is insecure for externally fetched data files
+======================================================
+
+The safe mode in LilyPond can be bypassed
+and does not provide a sandbox which is robust
+against code execution attacks (which can
+e.g. happen via embedded Guile code).
+
+If you use LilyPond to process files from untrusted sources
+(e.g. a server passing input to LilyPond),
+you need to deploy additional sandboxing measures.
+
+ -- Moritz Mühlenhoff <jmm@debian.org>  Tue, 13 Jul 2021 14:23:47 +0200

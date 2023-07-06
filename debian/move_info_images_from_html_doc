@@ -1,0 +1,53 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use File::Find;
+use File::Spec;
+use File::Copy;
+use File::Path qw(make_path);
+
+my ($info_dir,$html_images) = @ARGV;
+
+find(\&move_directories,$info_dir);
+
+sub move_directories {
+    return unless -f $_;
+    return unless $_ =~ /\.info(?:-\d+)?(?:\.gz)?$/;
+    open(my $info_fh,'-|','zcat','-f',$_);
+    my $l;
+    while (defined ($l = <$info_fh>)) {
+        chomp $l;
+        my @images = $l =~ /\[image\s+src="([^"]+)"/g;
+        for my $image (@images) {
+            my $image_dest = File::Spec->catfile($info_dir,
+                                                 $image);
+            print STDERR "checking $image ";
+            my $image_no_lilypond = $image;
+            $image_no_lilypond =~ s{^lilypond/?}{};
+            my $image_dir = $image_no_lilypond;
+            $image_dir =~ s{/[^/]+$}{};
+            my $image_source = File::Spec->catfile($html_images,
+                                                   $image_no_lilypond);
+            $image_dir = File::Spec->catfile($info_dir,'lilypond',$image_dir);
+            if (-f $image_source and
+                not -e $image_dest
+               ) {
+                print STDERR "moving to $image_dest\n";
+                if (not -d $image_dir) {
+                    make_path($image_dir);
+                    print STDERR "making $image_dir\n";
+                }
+                copy($image_source,$image_dest) or
+                    die "Unable to move $image_source to $image_dest $!";
+                # we don't bother to stick a symlink here, because
+                # symlink_html_images_to_info_images will do that for
+                # us.
+            } else {
+                print STDERR "either $image_source doesn't exist or $image_dest exists\n";
+            }
+        }
+    }
+    close($info_fh);
+}

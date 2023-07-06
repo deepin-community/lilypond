@@ -1,0 +1,9 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Lorsque la propriété @code{strict-note-spacing} est activée,
+l'espacement des notes dans un système ne tient compte ni des barres de
+mesure ni des clefs, qui se retrouvent placées juste avant la note qui
+tombe au même moment. Ceci peut entraîner certaines collisions.
+"
+
+  doctitlefr = "Espacement strictement proportionnel des notes"

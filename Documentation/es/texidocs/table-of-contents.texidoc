@@ -1,0 +1,8 @@
+%% Translation of GIT committish: 00f0ca84dbb015617f8ce36dd13db59bbfef8f11
+  texidoces = "
+Se puede incluir un índice general (tabla de contenidos) mediante el
+uso de @code{\\markuplist \\table-of-contents}.  Los elementos de la
+TDC se añaden con la instrucción @code{\\tocItem}.
+
+"
+  doctitlees = "Índice general (tabla de contenidos)"

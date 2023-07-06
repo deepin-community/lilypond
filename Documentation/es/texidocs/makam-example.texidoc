@@ -1,0 +1,11 @@
+%% Translation of GIT committish: 00f0ca84dbb015617f8ce36dd13db59bbfef8f11
+  texidoces = "
+El «Makam» es un tipo de melodía de Turquía que
+utiliza alteraciones microtonales de 1/9 de tono.  Consulte el
+archivo de inicio @file{makam.ly} (véase el 'Manual de
+aprendizaje @version{}, 4.6.3 Otras fuentes de información' para
+averiguar la situación de este archivo) para ver detalles de los
+nombres de las notas y las alteraciones.
+
+"
+  doctitlees = "Ejemplo de «Makam»"

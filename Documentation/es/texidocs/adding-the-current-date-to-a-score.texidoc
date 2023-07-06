@@ -1,0 +1,6 @@
+%% Translation of GIT committish: 8ffecf6be17c6ec2ff87cf31873121a8cce29b09
+  texidoces = "
+Con algo de código de Scheme, se puede añadir fácilmente la fecha
+actual a una partitura.
+"
+  doctitlees = "Añadir la fecha actual a una partitura"

@@ -1,0 +1,3 @@
+# Generated with "debian/rules update-doc-packages"
+usr/share/doc/lilypond/html/Documentation/*.cs.html
+usr/share/doc/lilypond/html/Documentation/*/*.cs.html

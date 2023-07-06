@@ -1,0 +1,124 @@
+#!/usr/bin/perl
+# update_doc_packages updates debian/control for the lilypond debian
+# package, and is released under the terms of the GPL version 2, or
+# any later version, at your option. See the file README and COPYING
+# for more information.
+# Copyright 2012 by Don Armstrong <don@debian.org>.
+
+use warnings;
+use strict;
+
+use IO::File;
+
+my $cfh = IO::File->new("debian/control",'r') or
+    die "Unable to open debian/control for reading: $!";
+
+my $dfh = IO::File->new("debian/doc_languages.txt",'r') or
+    die "Unable to open debian/doc_languages.txt for reading: $!";
+
+# read in languages
+my %languages;
+while (<$dfh>) {
+    chomp;
+    my ($type,$short,$long) = split /\s+/;
+    $languages{$type}{$short} = $long;
+}
+
+# parse control file
+my $new_control_file;
+my $discard_stanza = 0;
+while (<$cfh>) {
+    if (/^Package: lilypond-doc-(pdf|html)-.*/) {
+	$discard_stanza = 1;
+    }
+    if (/^\n?$/) {
+	if ($discard_stanza) {
+	    $discard_stanza = 0;
+	    next;
+	}
+    }
+    next if $discard_stanza;
+    $new_control_file .= $_;
+}
+close($cfh);
+
+for my $type (sort keys %languages) {
+    my $uc_type = uc($type);
+    my $recommends = '';
+    my $depends = '';
+    my $multiarch = '';
+    if ($type eq 'html') {
+	$recommends = '';
+	# this is required because the images are only in the -html package
+	$depends = "lilypond-doc-html,\n         "
+    } else {
+	$recommends = "\nRecommends: evince | pdf-viewer";
+	$multiarch = "\nMulti-Arch: foreign";
+    }
+    for my $lang (sort keys %{$languages{$type}}) {
+	my $ucfirst_long_lang = ucfirst($languages{$type}{$lang});
+	# write out the control file stanza
+	$new_control_file .= <<EOF;
+Package: lilypond-doc-$type-$lang
+Architecture: all${multiarch}
+Section: doc
+Depends: ${depends}\${misc:Depends}${recommends}
+Suggests: lilypond (>= \${source:Version})
+Description: LilyPond $uc_type Documentation in $ucfirst_long_lang
+ LilyPond is a music typesetter, an automated engraving system.  It
+ produces beautiful sheet music using a high level description file as input.
+ .
+ This package contains the $uc_type documentation in $ucfirst_long_lang for the
+ LilyPond music typesetting software.
+
+EOF
+	# write out the package.install file for this example
+        my $install_fh = IO::File->new("debian/lilypond-doc-$type-${lang}.install",'w') or
+            die "Unable to open debian/lilypond-doc-$type-${lang}.install for writing: $!";
+	if ($type eq 'html') {
+	    print {$install_fh} <<EOF;
+# Generated with "debian/rules update-doc-packages"
+usr/share/doc/lilypond/html/Documentation/*.${lang}.html
+usr/share/doc/lilypond/html/Documentation/*/*.${lang}.html
+EOF
+
+	} else {
+	    print {$install_fh} <<EOF;
+usr/share/doc/lilypond/html/Documentation/*.${lang}.pdf
+EOF
+	}
+	close($install_fh);
+        my $docbase_fh = IO::File->new("debian/lilypond-doc-$type-${lang}.doc-base-special",'w') or
+            die "Unable to open debian/lilypond-doc-$type-${lang}.doc-base-special for writing: $!";
+	print {$docbase_fh} <<EOF;
+Document: lilypond.${lang}
+Title: GNU LilyPond, the music typesetter
+Author: Various
+Abstract: This documentation describes LilyPond (the GNU Project music
+ typesetter), the LilyPond music input language, and the Mutopia project,
+ a.k.a. "Music To the People."
+Section: Typesetting
+
+EOF
+	if ($type eq 'html') {
+	    print {$docbase_fh} <<EOF;
+Format: HTML
+Index: /usr/share/doc/lilypond/html/Documentation/web/index.${lang}.html
+Files: /usr/share/doc/lilypond/html/Documentation/*.${lang}.html /usr/share/doc/lilypond/html/Documentation/*/*.${lang}.html
+EOF
+
+	} else {
+	    print {$docbase_fh} <<EOF;
+Format: PDF
+Files: /usr/share/doc/lilypond/html/Documentation/*.${lang}.pdf*
+EOF
+	}
+	close ($docbase_fh);
+    }
+}
+
+$cfh = IO::File->new('debian/control','w') or
+    die "Unable to open debian/control for writing: $!";
+print {$cfh} $new_control_file;
+
+close($cfh);

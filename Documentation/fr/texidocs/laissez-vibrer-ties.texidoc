@@ -1,0 +1,8 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Les indications de « laisser vibrer » ont une taille fixe. Leur
+formatage est accessible au travers de la propriété
+@code{tie-configuration}.
+"
+
+  doctitlefr = "Liaison « Laissez vibrer »"

@@ -1,0 +1,12 @@
+%% Translation of GIT committish: a3fd5364fc4f247579da0ed2bfea887ab37285c6
+  texidocfr = "
+Lorsqu'un glissando s'étend dans la durée, on trouve parfois des
+indications temporelles, matérialisées par des hampes sans tête de note.
+De telles hampes permettent aussi d'indiquer des éléments
+intermédiaires.
+
+L'alignement des hampes avec la ligne de glissando peut requérir
+quelques aménagements.
+"
+
+  doctitlefr = "Ajout de marques temporelles à un long glissando"

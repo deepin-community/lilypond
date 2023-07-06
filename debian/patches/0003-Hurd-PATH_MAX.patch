@@ -1,0 +1,25 @@
+Description: Workaround missing PATH_MAX on Hurd (lily/lily-guile.cc)
+ This patch is modelled after a similar fix by Masamichi Hosoda in March 2017
+ to flower/file-name.cc, see commits e632a63b594 and 9fd7a4d08b6.
+Author: Anthony Fok <foka@debian.org>
+Origin: vendor
+Forwarded: no
+Last-Update: 2021-01-15
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/lily/lily-guile.cc
++++ b/lily/lily-guile.cc
+@@ -86,8 +86,13 @@
+         {
+           string e = _f ("cannot find file: `%s'", fn);
+           e += " ";
++#ifdef PATH_MAX
+           char buf[PATH_MAX];
+           char *cwd = getcwd (buf, PATH_MAX);
++#else
++          char buf[1024];
++          char *cwd = getcwd (buf, 1024);
++#endif
+           e += _f ("(load path: `%s', cwd: `%s')", global_path.to_string (),
+                    cwd);
+           error (e);

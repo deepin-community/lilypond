@@ -1,4 +1,138 @@
 #!/usr/bin/make -f
+# debian/rules for LilyPond in Debian.
+#
+# This is free software; see the GNU General Public Licence
+# version 2 or later for copying conditions.  There is NO warranty.
+#
 
+include VERSION
+
+export MAILADDRESS = lilypond@packages.debian.org
+
+DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+CFLAGS := $(shell dpkg-buildflags --get CFLAGS)
+CXXFLAGS := $(shell dpkg-buildflags --get CXXFLAGS)
+#ifneq (,$(filter $(DEB_HOST_ARCH),))
+#  config_opt = --disable-optimising
+#  CFLAGS := $(filter-out -O%, $(CFLAGS))
+#  CXXFLAGS := $(filter-out -O%, $(CXXFLAGS))
+#else
+ifneq (,$(filter $(DEB_BUILD_OPTIONS),noopt))
+  config_opt = --disable-optimising
+else
+  config_opt = --enable-optimising
+endif
+#endif
+
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+	CPU_COUNT := $(firstword $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS))))
+	DOC_OPTIONS := -j$(CPU_COUNT) CPU_COUNT=$(CPU_COUNT)
+endif
+DOC_OPTIONS += WEB_TARGETS="offline"
+
+# Do not use debhelper's autoreconf, the build currently
+# fails with this option and we take care of that
+# ourselves anyway.
 %:
-	dh $@
+	dh $@ --without autoreconf --with python3
+
+override_dh_auto_configure:
+	./autogen.sh --noconfigure
+	dh_auto_configure -- --disable-checking --enable-debugging $(config_opt)
+
+execute_after_dh_auto_build-arch:
+	$(MAKE) bytecode
+
+execute_after_dh_auto_build-indep:
+	$(MAKE) $(DOC_OPTIONS) doc
+
+ifneq (,$(filter $(DEB_HOST_ARCH), hppa hurd-i386 kfreebsd-amd64 kfreebsd-i386))
+override_dh_auto_test-arch:
+	# Allow tests to fail on select architectures (since 2.20.0):
+	#  * hppa: fails at snippet-names-e9c0d84b44e6ce39576ac3a756562e43.ly
+	#  * kfreebsd-amd64 and kfreebsd-i386: missing imagemagick.q16 etc.
+	#  * hurd-i386: certain tests fail with guile-1.8?
+	-dh_auto_test -a
+endif
+
+## Unfortunately, lilypond is kind of broken, and installs the wrong
+## info documentation (missing images) if we call their makefile
+## directly. They also don't provide an install rule which doesn't
+## install the documentation, which we don't care about for the
+## architecture dependent build
+override_dh_auto_install-arch:
+	for dir in `echo */*makefile | xargs -n 1 dirname | grep -v Documentation`; do \
+		$(MAKE) --no-builtin-rules PACKAGE=LILYPOND package=lilypond -C $$dir install $(DOC_OPTIONS) prefix=$(CURDIR)/debian/tmp/usr; \
+	done
+	$(MAKE) --no-builtin-rules PACKAGE=LILYPOND package=lilypond -C scm install-bytecode $(DOC_OPTIONS) prefix=$(CURDIR)/debian/tmp/usr; \
+
+## We need the non-Documentation arch-independent files installed by
+## the arch-dependent "$(MAKE) install" too, hence the dependency
+## on override_dh_auto_install-arch
+override_dh_auto_install-indep: override_dh_auto_install-arch
+	$(MAKE) install-doc $(DOC_OPTIONS) prefix=$(CURDIR)/debian/tmp/usr
+	rm -rf $(CURDIR)/debian/tmp/usr/share/omf
+	rm -rf $(CURDIR)/debian/tmp/usr/share/doc/lilypond/html/input
+	# It seems debian/move_info_images_from_html_doc and
+	# debian/symlink_html_images_to_info_images are no longer needed
+	# for LilyPond 2.21.82 and 2.22?
+	#perl debian/move_info_images_from_html_doc $(CURDIR)/debian/tmp/usr/share/info/ $(CURDIR)/debian/tmp/usr/share/doc/lilypond/html/Documentation/
+	#perl debian/symlink_html_images_to_info_images $(CURDIR)/debian/tmp/usr/share/info/lilypond
+	perl debian/remove_w3c_callback $(CURDIR)/debian/tmp/usr/share/doc/lilypond/ $(CURDIR)/debian/tmp/usr/share/info/
+
+## we need to install only the jpg, css, ly and english html
+## files into the doc-html package, and only the english pdfs into the
+## doc-pdf package. Because dh_install doesn't support regexes, we'll
+## use find to replace the contents of the .install file before we
+## call dh_install
+execute_before_dh_install-indep:
+	# Generate debian/lilypond-doc-html.install
+	/bin/echo '# Generated during Debian package build; do not commit to git!' \
+		> $(CURDIR)/debian/lilypond-doc-html.install
+	/bin/echo -e 'usr/share/doc/lilypond/html/*/*/*.ly' \
+		> $(CURDIR)/debian/lilypond-doc-html.install
+	/bin/echo -e 'usr/share/doc/lilypond/html/*/*/*.jpg\nusr/share/doc/lilypond/html/*/*/*.css' \
+		>> $(CURDIR)/debian/lilypond-doc-html.install
+	find $(CURDIR)/debian/tmp/ -type f \
+		-regex '.*usr/share/doc/lilypond/.*/[^\.]+.html' \
+		-printf '%P\n' >> $(CURDIR)/debian/lilypond-doc-html.install
+	# Generate debian/lilypond-doc-pdf.install
+	/bin/echo '# Generated during Debian package build; do not commit to git!' \
+		> $(CURDIR)/debian/lilypond-doc-pdf.install
+	find $(CURDIR)/debian/tmp/ -type f \
+		-regex '.*usr/share/doc/lilypond/.*/[^\.]+.pdf' \
+		-printf '%P\n' >> $(CURDIR)/debian/lilypond-doc-pdf.install
+	find $(CURDIR)/debian/tmp/ -type f \
+		-regex '.*usr/share/doc/lilypond/.*/[^\.]+.preview.pdf' \
+		-printf '%P\n' >> $(CURDIR)/debian/lilypond-doc-pdf.install
+
+override_dh_python3:
+	/usr/share/dh-python/dh_python3 --verbose
+	/usr/share/dh-python/dh_python3 --verbose usr/share/lilypond/$(MAJOR_VERSION).$(MINOR_VERSION).$(PATCH_LEVEL)/python/
+
+override_dh_compress:
+	dh_compress -X.ly -X.pdf
+
+override_dh_dwz-arch:
+	dh_dwz -a -X/ccache/lily/
+
+override_dh_strip-arch:
+	dh_strip -a -X/ccache/lily/
+
+execute_after_dh_installdocs:
+	for a in $(wildcard $(CURDIR)/debian/*.doc-base-special); do \
+		package=`basename $$a .doc-base-special`; \
+		install -d debian/$$package/usr/share/doc-base; \
+		install -m0644 $$a debian/$$package/usr/share/doc-base/$$package; \
+	done
+
+override_dh_auto_clean:
+	dh_auto_clean --no-parallel
+	-git restore configure || rm -f configure
+
+## this rule will update debian/control and the per-language install
+## files; all of the files it generates/modifies should be included in
+## the Debian package and should not need to be regenerated or
+## modified.
+update-doc-packages:
+	perl debian/update_doc_packages

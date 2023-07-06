@@ -1,0 +1,3 @@
+# This install file is overwritten in the execute_before_dh_install-indep rule
+# in debian/rules. Do not attempt to modify what is installed in the
+# lilypond-doc-html package here.
